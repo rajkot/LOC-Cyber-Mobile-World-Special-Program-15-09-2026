@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LOC Cyber Command Portal - High-security intelligence dashboard and exhaustive research repository covering digital crime vectors, transnational syndicates, SIMBox hardware, and law enforcement countermeasures.">
+  <meta name="keywords" content="Cyber Security, Command Portal, Fraud Mitigation, SIMBox, Mule Accounts, 1930 Helpline, Digital Arrest, Delhi Police, Amit Dubey, Rajnish Gupta">
+  <meta name="author" content="LOC Cyber Security Special Program">
+  <meta name="theme-color" content="#08090c">
+  <title>LOC Cyber Command Portal | Cyber Mobile World Special Program</title>
+  <!-- Performance Preconnect Hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <!-- Content Security Policy (CSP) for Enterprise Security Audit -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https:;">
+
+  <!-- Embedded Cyber SVG Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2308090c'/><circle cx='50' cy='50' r='30' fill='none' stroke='%2300f0ff' stroke-width='6'/><circle cx='50' cy='50' r='14' fill='%2300f0ff'/><path d='M50 10 L50 25 M50 75 L50 90 M10 50 L25 50 M75 50 L90 50' stroke='%23ff007f' stroke-width='4'/></svg>">
+
+  <link rel="stylesheet" href="./styles.css">
+  <!-- Marked.js Client-Side Markdown Engine -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <!-- Active Reading Progress Bar (Fixed Top) -->
+  <div id="reading-progress-container" class="reading-progress-container">
+    <div id="reading-progress-bar" class="reading-progress-bar"></div>
+  </div>
+
+  <div class="app-container" id="app-root">
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+    <!-- ==========================================================================
+         PERSISTENT SIDEBAR NAVIGATION PANEL (11 Pages)
+         ========================================================================== -->
+    <aside class="sidebar" id="main-sidebar" aria-label="Sidebar Navigation">
+      
+      <!-- Futuristic Portal Header -->
+      <div class="sidebar-header">
+        <div class="brand-badge">
+          <span class="pulse-dot"></span>
+          <span>SECURE NODE // EP-3100</span>
+        </div>
+        <h1 class="portal-title">LOC CYBER COMMAND PORTAL</h1>
+        <p class="portal-subtitle">Mobile World Forensic Archive</p>
+      </div>
+
+      <!-- Quick Search & Intelligence Filter -->
+      <div class="sidebar-search-box">
+        <div class="search-input-wrapper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="report-search-input" class="search-input" placeholder="Search Intel Corpus..." aria-label="Search reports">
+        </div>
+      </div>
+
+      <!-- 11-Page Navigation Menu -->
+      <nav class="sidebar-nav" id="sidebar-nav" aria-label="Portal Navigation Menu">
+        
+        <div class="nav-section-label">Command Center</div>
+        
+        <!-- Page 1: 00. EXECUTIVE DASHBOARD (Active by default) -->
+        <button type="button" class="nav-item active" id="nav-page-00" data-page="page-00" aria-current="page">
+          <span class="nav-item-num">00</span>
+          <div class="nav-item-text">
+            <span class="nav-item-title">00. EXECUTIVE DASHBOARD</span>
+            <span class="nav-item-desc">Threat Intel & Master Metrics</span>
+          </div>
+        </button>
+
+        <div class="nav-section-label">Forensic Dossier (Parts I - X)</div>
+
+        <!-- Page 2: 01. REPORT PART I -->
+        <button type="button" class="nav-item" id="nav-page-01" data-page="page-01">
+          <span class="nav-item-num">01</span>
+          <div class="nav-item-text">
+            <span class="nav-item-title">01. REPORT PART I</span>
+            <span class="nav-item-desc">Universal Fraud & Utility Disconnections</span>
+          </div>
+        </button>
+
+        <!-- Page 3: 02. REPORT PART II -->
+        <button type="button" class="nav-item" id="nav-page-02" data-page="page-02">
+          <span class="nav-item-num">02</span>
+          <div class="nav-item-text">
+            <span class="nav-item-title">02. REPORT PART II</span>
+            <span class="nav-item-desc">SIMBox Hardware & Trafficking Rackets</span>
+          </div>
+        </button>
+
+        <!-- Page 4: 03. REPORT PART III -->
+        <button type="button" class="nav-item" id="nav-page-03" data-page="page-03">
+          <span class="nav-item-num">03</span>
+          <div class="nav-item-text">
+            <span class="nav-item-title">03. REPORT PART III</span>
+            <span class="nav-item-desc">Transnational Schemes & Protocols</span>
+          </div>
+        </button>
+
+        <!-- Page 5: 04. REPORT PART IV -->
+        <button type="button" class="nav-item" id="nav-page-04" data-page="page-04">
+          <span class="nav-item-num">04</span>
+          <div class="nav-item-text">
+            <span class="nav-item-title">04. REPORT PART IV</span>
+            <span class="nav-item-desc">Mitigation Infrastructure & Channels</span>
+          </div>
+        </button>
+
+        <!-- Page 6: 05. REPORT PART V -->
+        <button type="button" class="nav-item" id="nav-page-05" data-page="page-05">
+          <span class="nav-item-num">05</span>
+          <div class="nav-item-text">
+            <span class="nav-item-title">05. REPORT PART V</span>
+            <span class="nav-item-desc">Telecommunication Exploits & Spoofing</span>
+          </div>
+        </button>
+
+        <!-- Page 7: 06. REPORT PART VI -->
+        <button type="button" class="nav-item" id="nav-page-06" data-page="page-06">
+          <span class="nav-item-num">06</span>
+          <div class="nav-item-text">
+            <span class="nav-item-title">06. REPORT PART VI</span>
+            <span class="nav-item-desc">Transnational Cyber Hubs & Crypto Flows</span>
+          </div>
+        </button>
+
+        <!-- Page 8: 07. REPORT PART VII -->
+        <button type="button" class="nav-item" id="nav-page-07" data-page="page-07">
+          <span class="nav-item-num">07</span>
+          <div class="nav-item-text">
+            <span class="nav-item-title">07. REPORT PART VII</span>
+            <span class="nav-item-desc">Digital Arrest Coercion & Psychological Traps</span>
+          </div>
+        </button>
+
+        <!-- Page 9: 08. REPORT PART VIII -->
+        <button type="button" class="nav-item" id="nav-page-08" data-page="page-08">
+          <span class="nav-item-num">08</span>
+          <div class="nav-item-text">
+            <span class="nav-item-title">08. REPORT PART VIII</span>
+            <span class="nav-item-desc">NCRP Protocols & Financial Intercepts</span>
+          </div>
+        </button>
+
+        <!-- Page 10: 09. REPORT PART IX -->
+        <button type="button" class="nav-item" id="nav-page-09" data-page="page-09">
+          <span class="nav-item-num">09</span>
+          <div class="nav-item-text">
+            <span class="nav-item-title">09. REPORT PART IX</span>
+            <span class="nav-item-desc">Interstate Enforcement & Police Synergy</span>
+          </div>
+        </button>
+
+        <!-- Page 11: 10. REPORT PART X -->
+        <button type="button" class="nav-item" id="nav-page-10" data-page="page-10">
+          <span class="nav-item-num">10</span>
+          <div class="nav-item-text">
+            <span class="nav-item-title">10. REPORT PART X</span>
+            <span class="nav-item-desc">Master Forensic Synthesis & Action Matrix</span>
+          </div>
+        </button>
+
+      </nav>
+
+      <!-- Pinned Cyber Helpline & Immediate Action -->
+      <div class="sidebar-footer">
+        <div class="helpline-card" id="helpline-card">
+          <div class="helpline-badge">
+            <span class="pulse-dot" style="background-color: var(--neon-magenta); box-shadow: 0 0 10px rgba(255,0,127,0.8);"></span>
+            <span>NATIONAL CRIME HELPLINE</span>
+          </div>
+          <div class="helpline-number">
+            1930 <span>// 24x7 TOLL-FREE</span>
+          </div>
+          <p class="helpline-text">
+            Golden Hour Reporting: Call 1930 immediately or file a report at <strong style="color: #fff;">cybercrime.gov.in</strong> to freeze illicit fund transfers.
+          </p>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ==========================================================================
+         MAIN CONTENT AREA
+         ========================================================================== -->
+    <div class="main-wrapper">
+
+      <!-- Glassmorphic Top Command Bar -->
+      <header class="top-header" id="command-header">
+        <div class="header-left">
+          <button type="button" class="mobile-toggle-btn" id="mobile-toggle-btn" aria-label="Toggle Navigation Menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <div class="breadcrumbs">
+            <span>LOC COMMAND</span>
+            <span>/</span>
+            <span class="current-page" id="breadcrumb-page">00. EXECUTIVE DASHBOARD</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <!-- Live Document Text Search Engine Drawer -->
+          <div class="doc-search-drawer" id="doc-search-drawer">
+            <svg class="doc-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="doc-search-input" class="doc-search-input" placeholder="Find in dossier text..." aria-label="Find text in document">
+            <span class="doc-search-counter" id="doc-search-counter">0/0</span>
+            <button type="button" id="doc-search-prev" class="doc-search-nav-btn" aria-label="Previous match" title="Previous match">▲</button>
+            <button type="button" id="doc-search-next" class="doc-search-nav-btn" aria-label="Next match" title="Next match">▼</button>
+            <button type="button" id="doc-search-close" class="doc-search-close-btn" aria-label="Clear & Close search" title="Close search">✕</button>
+          </div>
+
+          <div class="system-status-indicator">
+            <span class="pulse-dot"></span>
+            <span id="live-clock">2026-09-15 00:00:00 UTC</span>
+          </div>
+          <div class="defcon-pill">
+            <span class="dot"></span>
+            <span>ALERT LEVEL: MONITORING</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Central Reading Container (Max-Width: 900px) -->
+      <main class="content-area">
+        <div class="reading-container">
+
+          <!-- ====================================================================
+               PAGE 00: EXECUTIVE DASHBOARD (Active by Default)
+               ==================================================================== -->
+          <!-- ====================================================================
+               PAGE 00: EXECUTIVE DASHBOARD (Static Container)
+               ==================================================================== -->
+          <!-- ====================================================================
+               PAGE 00: EXECUTIVE DASHBOARD (Static Entry Landing View)
+               ==================================================================== -->
+          <article class="page-view active" id="dashboard-view" aria-labelledby="heading-dashboard">
+            
+            <!-- 1. Hero Header Block -->
+            <section class="command-hero">
+              <div class="hero-tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+                <span>FORENSIC DOSSIER // SPECIAL RESEARCH CORPUS</span>
+              </div>
+              <h1 class="hero-title" id="heading-dashboard">LOC CYBER MOBILE WORLD SPECIAL PROGRAM</h1>
+              <div class="hero-subtitle">EPISODE 3100: TRANSNATIONAL CYBER FRAUD DEEP DIVE & MITIGATION PROTOCOLS</div>
+              <p class="hero-lead">
+                The definitive national intelligence briefing examining modern telecommunication exploits, forced labor cyber compounds, illegal SIMBox hardware, and law enforcement countermeasures across sovereign jurisdictions.
+              </p>
+              <div class="hero-meta-line">
+                <span class="pulse-dot"></span>
+                <span>KEY EXPERTS: Joint CP Rajnish Gupta & Investigator Amit Dubey | Delhi Police IFSO</span>
+              </div>
+            </section>
+
+            <!-- 2. Technical Metrics Row (3 Glowing Telemetry Cards) -->
+            <section class="telemetry-grid" aria-label="Technical Metrics Telemetry">
+              
+              <!-- Card 1: Neon Pink Accent -->
+              <div class="telemetry-card pink">
+                <div class="telemetry-tag">
+                  <span class="pulse-dot" style="background-color: var(--neon-magenta); box-shadow: 0 0 8px var(--neon-magenta);"></span>
+                  <span>CRITICAL INFRASTRUCTURE</span>
+                </div>
+                <div>
+                  <div class="telemetry-val">1930</div>
+                  <div style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem;">
+                    NATIONAL HELPLINE
+                  </div>
+                  <div class="telemetry-subtext">Active Emergency First Aid Protocol for instant multi-tier financial freeze.</div>
+                </div>
+              </div>
+
+              <!-- Card 2: Neon Cyan Accent -->
+              <div class="telemetry-card cyan">
+                <div class="telemetry-tag">
+                  <span class="pulse-dot" style="background-color: var(--neon-cyan); box-shadow: 0 0 8px var(--neon-cyan);"></span>
+                  <span>EXTRADITION & RESCUE</span>
+                </div>
+                <div>
+                  <div class="telemetry-val">1,000+</div>
+                  <div style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem;">
+                    RESCUE OPERATIONS
+                  </div>
+                  <div class="telemetry-subtext">Trafficked Workers Extradited from SE Asia cyber boiler rooms & compounds.</div>
+                </div>
+              </div>
+
+              <!-- Card 3: Warning Yellow Accent -->
+              <div class="telemetry-card yellow">
+                <div class="telemetry-tag">
+                  <span class="pulse-dot" style="background-color: #ffb800; box-shadow: 0 0 8px #ffb800;"></span>
+                  <span>CAPITAL EXFILTRATION</span>
+                </div>
+                <div>
+                  <div class="telemetry-val">5.0+ Crore</div>
+                  <div style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem;">
+                    MULE INFRASTRUCTURE
+                  </div>
+                  <div class="telemetry-subtext">Laid & Frozen Across Cross-Border Layers via automated banking liens.</div>
+                </div>
+              </div>
+
+            </section>
+
+            <!-- 4. Global Live Interactive Filter Bar -->
+            <section class="dashboard-filter-bar" aria-label="Dossier Intelligence Search">
+              <div class="dashboard-search-wrapper">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input 
+                  type="text" 
+                  id="dashboard-search-input" 
+                  class="dashboard-search-input" 
+                  placeholder="Filter dossier by keyword (e.g. Simbox, Mule, Ramayana, 1930, Trafficking)..." 
+                  aria-label="Filter 10 report parts"
+                >
+                <button type="button" id="dashboard-search-clear" class="search-clear-btn" aria-label="Clear Search">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </button>
+              </div>
+              <div class="search-results-badge" id="dashboard-search-count">
+                10 / 10 VOLUMES ACTIVE
+              </div>
+            </section>
+
+            <!-- 3. Grid of Report Parts (2x5 Interactive Cards) -->
+            <section class="report-grid-2x5" id="dashboard-report-grid" aria-label="Report Volumes Directory">
+              
+              <!-- Card 01 -->
+              <article class="report-part-card" data-keywords="part 1 01 universal fraud psychological ramayana analogy sita golden deer sadhu disguise lakshman rekha otp utility gas disconnection water apk wedding cards facebook cloning whatsapp hacking investment diamond merchant gujarat">
+                <div>
+                  <div class="card-top-row">
+                    <span class="part-badge">PART 01</span>
+                    <span class="card-status-dot"></span>
+                  </div>
+                  <h3 class="card-title">Universal Fraud & Everyday Vectors</h3>
+                  <p class="card-theme">
+                    Psychological Ramayana Analogy, Utility Scams, APK Wedding Invites & the Illusion of Urgency in domestic cyber attacks.
+                  </p>
+                  <div class="card-tags">
+                    <span class="tag-chip">Ramayana Analogy</span>
+                    <span class="tag-chip">APK Trojans</span>
+                    <span class="tag-chip">Utility Scams</span>
+                  </div>
+                </div>
+                <button type="button" class="decrypt-btn" onclick="window.navigateTo('page-01')" aria-label="Decrypt Archive Part 01">
+                  <span>DECRYPT ARCHIVE</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </article>
+
+              <!-- Card 02 -->
+              <article class="report-part-card" data-keywords="part 2 02 transnational simbox hardware gsm bypass human trafficking force labor cambodia myanmar compounds mule accounts chandni chowk laundering golden hour 1930 helpline social media public profiles">
+                <div>
+                  <div class="card-top-row">
+                    <span class="part-badge">PART 02</span>
+                    <span class="card-status-dot"></span>
+                  </div>
+                  <h3 class="card-title">Hardware SIMBoxes & Mule Rings</h3>
+                  <p class="card-theme">
+                    Transnational Simbox Hardware, SE Asia Cyber Compounds, Human Trafficking & Chandni Chowk Money Laundering Networks.
+                  </p>
+                  <div class="card-tags">
+                    <span class="tag-chip">SIMBox Racks</span>
+                    <span class="tag-chip">Forced Labor</span>
+                    <span class="tag-chip">Chandni Chowk</span>
+                  </div>
+                </div>
+                <button type="button" class="decrypt-btn" onclick="window.navigateTo('page-02')" aria-label="Decrypt Archive Part 02">
+                  <span>DECRYPT ARCHIVE</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </article>
+
+              <!-- Card 03 -->
+              <article class="report-part-card" data-keywords="part 3 03 transnational schemes administrative protocols layered laundering machinery peer to peer p2p crypto conversion usdt cashouts atm friction cross border">
+                <div>
+                  <div class="card-top-row">
+                    <span class="part-badge">PART 03</span>
+                    <span class="card-status-dot"></span>
+                  </div>
+                  <h3 class="card-title">Transnational Schemes & Protocols</h3>
+                  <p class="card-theme">
+                    Multi-Tier Layered Laundering Machinery, P2P Cryptocurrency Conversions & Cross-Border Sovereign Jurisdiction Friction.
+                  </p>
+                  <div class="card-tags">
+                    <span class="tag-chip">Layer 3 Mules</span>
+                    <span class="tag-chip">P2P Crypto</span>
+                    <span class="tag-chip">Hawala Flows</span>
+                  </div>
+                </div>
+                <button type="button" class="decrypt-btn" onclick="window.navigateTo('page-03')" aria-label="Decrypt Archive Part 03">
+                  <span>DECRYPT ARCHIVE</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </article>
+
+              <!-- Card 04 -->
+              <article class="report-part-card" data-keywords="part 4 04 mitigation infrastructure channels indian cyber crime coordination centre i4c automated core banking system cbs integration liens debit freezes ncrp real-time">
+                <div>
+                  <div class="card-top-row">
+                    <span class="part-badge">PART 04</span>
+                    <span class="card-status-dot"></span>
+                  </div>
+                  <h3 class="card-title">Mitigation Systems & Bank Integration</h3>
+                  <p class="card-theme">
+                    I4C Frameworks, Automated Core Banking (CBS) Webhook Integrations & Immediate Lien Placement Mechanics.
+                  </p>
+                  <div class="card-tags">
+                    <span class="tag-chip">I4C National Grid</span>
+                    <span class="tag-chip">CBS Webhooks</span>
+                    <span class="tag-chip">Lien Placement</span>
+                  </div>
+                </div>
+                <button type="button" class="decrypt-btn" onclick="window.navigateTo('page-04')" aria-label="Decrypt Archive Part 04">
+                  <span>DECRYPT ARCHIVE</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </article>
+
+              <!-- Card 05 -->
+              <article class="report-part-card" data-keywords="part 5 05 telecommunication exploits spoofing calling line identification cli manipulation international gateway leaks department of telecommunications dot tafcop sanchar saathi">
+                <div>
+                  <div class="card-top-row">
+                    <span class="part-badge">PART 05</span>
+                    <span class="card-status-dot"></span>
+                  </div>
+                  <h3 class="card-title">Telecom Exploits & CLI Spoofing</h3>
+                  <p class="card-theme">
+                    Calling Line Identification (CLI) Manipulation, International Gateway Leaks & DOT Telecom Regulatory Interventions.
+                  </p>
+                  <div class="card-tags">
+                    <span class="tag-chip">CLI Spoofing</span>
+                    <span class="tag-chip">Gateway Leaks</span>
+                    <span class="tag-chip">DOT Mandates</span>
+                  </div>
+                </div>
+                <button type="button" class="decrypt-btn" onclick="window.navigateTo('page-05')" aria-label="Decrypt Archive Part 05">
+                  <span>DECRYPT ARCHIVE</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </article>
+
+              <!-- Card 06 -->
+              <article class="report-part-card" data-keywords="part 6 06 international cyber hubs chinese connection crypto flows transnational remittance dark web wash services otc traders bullion gold purchases usdt">
+                <div>
+                  <div class="card-top-row">
+                    <span class="part-badge">PART 06</span>
+                    <span class="card-status-dot"></span>
+                  </div>
+                  <h3 class="card-title">Transnational Hubs & Crypto Flows</h3>
+                  <p class="card-theme">
+                    Chinese-Operated Financial Syndicates, Over-The-Counter (OTC) Desks & Dark Web USDT Liquidity Pools.
+                  </p>
+                  <div class="card-tags">
+                    <span class="tag-chip">Chinese Hubs</span>
+                    <span class="tag-chip">USDT Wash</span>
+                    <span class="tag-chip">Bullion Trails</span>
+                  </div>
+                </div>
+                <button type="button" class="decrypt-btn" onclick="window.navigateTo('page-06')" aria-label="Decrypt Archive Part 06">
+                  <span>DECRYPT ARCHIVE</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </article>
+
+              <!-- Card 07 -->
+              <article class="report-part-card" data-keywords="part 7 07 digital arrest coercion mechanics psychological confinement fake police backdrops supreme court warrants 72 hour hostage skype video whatsapp cbi ed">
+                <div>
+                  <div class="card-top-row">
+                    <span class="part-badge">PART 07</span>
+                    <span class="card-status-dot"></span>
+                  </div>
+                  <h3 class="card-title">Digital Arrest Coercion Mechanics</h3>
+                  <p class="card-theme">
+                    Psychological Confinement, Fake Law Enforcement Backdrops, Fabricated Supreme Court Warrants & The 72-Hour Hostage Syndrome.
+                  </p>
+                  <div class="card-tags">
+                    <span class="tag-chip">Digital Arrest</span>
+                    <span class="tag-chip">Fake CBI / ED</span>
+                    <span class="tag-chip">Video Isolation</span>
+                  </div>
+                </div>
+                <button type="button" class="decrypt-btn" onclick="window.navigateTo('page-07')" aria-label="Decrypt Archive Part 07">
+                  <span>DECRYPT ARCHIVE</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </article>
+
+              <!-- Card 08 -->
+              <article class="report-part-card" data-keywords="part 8 08 sanchar saathi & helpline 1930 ncrp protocols financial intercepts national cyber crime reporting portal workflows cyber cell dispatch utr trace ifsc ceir tafcop">
+                <div>
+                  <div class="card-top-row">
+                    <span class="part-badge">PART 08</span>
+                    <span class="card-status-dot"></span>
+                  </div>
+                  <h3 class="card-title">NCRP Protocols & Financial Intercepts</h3>
+                  <p class="card-theme">
+                    Sanchar Saathi & Helpline 1930, Ticket Lifecycles, Real-Time Banking Telemetry & Forensic UTR Traces.
+                  </p>
+                  <div class="card-tags">
+                    <span class="tag-chip">Sanchar Saathi & 1930</span>
+                    <span class="tag-chip">UTR Tracing</span>
+                    <span class="tag-chip">NCRP Pipeline</span>
+                  </div>
+                </div>
+                <button type="button" class="decrypt-btn" onclick="window.navigateTo('page-08')" aria-label="Decrypt Archive Part 08">
+                  <span>DECRYPT ARCHIVE</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </article>
+
+              <!-- Card 09 -->
+              <article class="report-part-card" data-keywords="part 9 09 interstate enforcement police synergy multi-state operations joint cp rajnish gupta delhi police ifso tactical raids extradition inter-agency coordination">
+                <div>
+                  <div class="card-top-row">
+                    <span class="part-badge">PART 09</span>
+                    <span class="card-status-dot"></span>
+                  </div>
+                  <h3 class="card-title">Interstate Enforcement & Police Synergy</h3>
+                  <p class="card-theme">
+                    Multi-State Police Operations, Joint CP Delhi Police Insights, Cross-State Jurisdiction Navigation & Tactical Raids.
+                  </p>
+                  <div class="card-tags">
+                    <span class="tag-chip">Delhi Police IFSO</span>
+                    <span class="tag-chip">Tactical Raids</span>
+                    <span class="tag-chip">Inter-State Taskforces</span>
+                  </div>
+                </div>
+                <button type="button" class="decrypt-btn" onclick="window.navigateTo('page-09')" aria-label="Decrypt Archive Part 09">
+                  <span>DECRYPT ARCHIVE</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </article>
+
+              <!-- Card 10 -->
+              <article class="report-part-card" data-keywords="part 10 master forensic synthesis action matrix the golden hour action matrix telecom regulatory mandates behavioral awareness doctrines systemic cyber defense roadmaps">
+                <div>
+                  <div class="card-top-row">
+                    <span class="part-badge">PART 10</span>
+                    <span class="card-status-dot"></span>
+                  </div>
+                  <h3 class="card-title">Master Synthesis & Action Matrix</h3>
+                  <p class="card-theme">
+                    The Golden Hour Action Matrix, Telecom Infrastructure Reforms, Behavioral Inoculation & Systemic Defense Roadmaps.
+                  </p>
+                  <div class="card-tags">
+                    <span class="tag-chip">Golden Hour Matrix</span>
+                    <span class="tag-chip">Systemic Defense</span>
+                    <span class="tag-chip">Telecom Reforms</span>
+                  </div>
+                </div>
+                <button type="button" class="decrypt-btn" onclick="window.navigateTo('page-10')" aria-label="Decrypt Archive Part 10">
+                  <span>DECRYPT ARCHIVE</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </article>
+
+            </section>
+
+            <!-- Empty Search State -->
+            <div class="dashboard-empty-state" id="dashboard-empty-state">
+              <div class="error-badge" style="margin-bottom: 0.85rem;">
+                <span class="pulse-dot" style="background-color: var(--neon-magenta);"></span>
+                <span>SEARCH QUERY YIELDED ZERO INTEL</span>
+              </div>
+              <h3 class="empty-title">NO MATCHING DOSSIERS LOCATED IN ACTIVE SECTOR</h3>
+              <p class="empty-desc">No report volumes match your search terms. Try searching for "Simbox", "Mule", "Ramayana", "1930", or "Crypto".</p>
+              <button type="button" class="cyber-btn primary" onclick="resetDashboardSearch()">Reset Filter</button>
+            </div>
+
+          </article>
+
+          <!-- ====================================================================
+               FUTURISTIC GLOWING LOADER (Active During Markdown Fetch)
+               ==================================================================== -->
+          <div id="content-loader" class="cyber-loader-wrapper" style="display: none;" aria-live="polite">
+            <div class="cyber-spinner">
+              <div class="spinner-ring-outer"></div>
+              <div class="spinner-ring-inner"></div>
+              <div class="spinner-core"></div>
+            </div>
+            <div class="loader-status">
+              <span class="pulse-dot"></span>
+              <span class="loader-text" id="loader-message">ACCESSING SECURE DATA SECTOR...</span>
+            </div>
+            <div class="loader-progress-bar">
+              <div class="loader-progress-fill"></div>
+            </div>
+            <div class="loader-subtext">DECRYPTING MARKDOWN INTELLIGENCE STREAM</div>
+          </div>
+
+          <!-- ====================================================================
+               CENTRALIZED DYNAMIC MARKDOWN VIEWPORT (Rendered via Marked.js)
+               ==================================================================== -->
+          <article id="content-viewport" class="page-view markdown-viewport" style="display: none;"></article>
+
+        </div>
+      </main>
+
+    </div>
+  </div>
+
+  <!-- Interactive Portal Controller Script -->
+  <script src="./app.js"></script>
+</body>
+</html>
