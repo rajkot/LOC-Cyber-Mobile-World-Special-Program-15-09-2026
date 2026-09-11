@@ -14,6 +14,8 @@ const STATIC_ASSETS = [
   './styles.css',
   './app.js',
   './podcast_cover.png',
+  './binance_qr.png',
+  './upi_qr.png',
   './rss.xml',
   'https://cdn.jsdelivr.net/npm/marked/marked.min.js',
   './cyber-mobile-world-report-part1.md',

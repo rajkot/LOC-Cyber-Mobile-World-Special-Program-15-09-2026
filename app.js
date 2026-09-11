@@ -362,6 +362,64 @@
           ${nextRoute ? nextRoute.title : 'Next'} →
         </button>
       </footer>
+
+      <!-- Verified Contribution, Pro Appointments & Official Digital Store -->
+      <section class="pro-payment-section">
+        <div class="pro-section-header">
+          <div class="pro-section-badge">
+            <span class="pulse-dot" style="background-color: #F0B90B; box-shadow: 0 0 10px rgba(240, 185, 11, 0.8);"></span>
+            <span>VERIFIED CONTRIBUTION &amp; OFFICIAL SERVICES</span>
+          </div>
+          <h3 class="pro-section-title">Support the Intelligence Mission &amp; Digital Store</h3>
+          <p class="pro-section-subtitle">Book high-priority cyber forensic appointments, contribute directly via Binance or UPI, or access the official digital store.</p>
+        </div>
+
+        <!-- Action Buttons Trio (User Requested) -->
+        <div class="pro-btn-container">
+          <button type="button" class="pro-btn btn-buy-pro" onclick="window.open('https://wa.me/919898048483', '_blank')">⚡ BUY NOW PRO (APPOINTMENT)</button>
+          <button type="button" class="pro-btn btn-donate" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLScJ7WjuxEXqdoSlUtxN7NQ8UeKpbEAeA9iIO-IXOmBmYzlLHQ/viewform?usp=sharing&ouid=116676179363878319046', '_blank')">🪙 DONATION SYSTEM</button>
+          <button type="button" class="pro-btn btn-store" onclick="window.open('https://wa.me/c/919898048483', '_blank')">🛒 OFFICIAL DIGITAL STORE</button>
+        </div>
+
+        <!-- Both QR Codes Grid: Binance QR & UPI QR -->
+        <div class="pro-qr-grid">
+          <!-- 1. Binance QR Card -->
+          <div class="pro-qr-card binance-card">
+            <div class="pro-qr-card-header">
+              <span class="pro-qr-tag binance-tag">BINANCE PAY</span>
+              <span class="pro-qr-network">CRYPTO / USDT</span>
+            </div>
+            <div class="pro-qr-img-box">
+              <img src="./binance_qr.png" alt="Binance QR Code - BuyMyTime" class="pro-qr-image" loading="lazy">
+            </div>
+            <div class="pro-qr-info">
+              <div class="pro-qr-title">BuyMyTime</div>
+              <div class="pro-qr-instruction">Scan with Binance App to pay anywhere</div>
+            </div>
+          </div>
+
+          <!-- 2. UPI QR Card -->
+          <div class="pro-qr-card upi-card">
+            <div class="pro-qr-card-header">
+              <span class="pro-qr-tag upi-tag">UPI INSTANT</span>
+              <span class="pro-qr-network">ALL UPI APPS</span>
+            </div>
+            <div class="pro-qr-img-box">
+              <img src="./upi_qr.png" alt="UPI QR Code - Jignesh Jayantilal Kariya" class="pro-qr-image" loading="lazy">
+            </div>
+            <div class="pro-qr-info">
+              <div class="pro-qr-title">Jignesh Jayantilal Kariya</div>
+              <div class="pro-upi-row">
+                <code class="pro-upi-id">oo71097145198@okaxis</code>
+                <button type="button" class="pro-copy-chip" onclick="window.copyUPI(this)" title="Copy UPI ID">
+                  <span>Copy UPI</span>
+                </button>
+              </div>
+              <div class="pro-qr-instruction">Scan with GPay, PhonePe, Paytm, BHIM</div>
+            </div>
+          </div>
+        </div>
+      </section>
     `;
 
     // Inject into viewport
@@ -946,6 +1004,28 @@
       });
     }
   }
+
+  /**
+   * 5. Copy UPI ID to Clipboard Utility
+   */
+  window.copyUPI = function(btn) {
+    const upiId = 'oo71097145198@okaxis';
+    const originalContent = btn.innerHTML;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(upiId).then(() => {
+        btn.innerHTML = '<span>COPIED ✓</span>';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerHTML = originalContent;
+          btn.classList.remove('copied');
+        }, 2000);
+      }).catch(() => {
+        prompt('Copy UPI ID:', upiId);
+      });
+    } else {
+      prompt('Copy UPI ID:', upiId);
+    }
+  };
 
 })();
 
