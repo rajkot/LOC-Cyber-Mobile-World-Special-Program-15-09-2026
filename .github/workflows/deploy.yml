@@ -1,0 +1,59 @@
+name: Deploy LOC Cyber Command Portal to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  validate-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 🔍 Validate JavaScript Syntax
+        run: |
+          node -c app.js
+          node -c sw.js
+
+      - name: 🛡️ Verify Core Assets
+        run: |
+          test -f index.html || { echo "index.html missing"; exit 1; }
+          test -f styles.css || { echo "styles.css missing"; exit 1; }
+          test -f app.js || { echo "app.js missing"; exit 1; }
+          test -f README.md || { echo "README.md missing"; exit 1; }
+          test -f binance_qr.png || { echo "binance_qr.png missing"; exit 1; }
+          test -f binance_1bnb_qr.png || { echo "binance_1bnb_qr.png missing"; exit 1; }
+          test -f binance_1bnb_qr_square.png || { echo "binance_1bnb_qr_square.png missing"; exit 1; }
+          test -f upi_qr.png || { echo "upi_qr.png missing"; exit 1; }
+
+      - name: 🌐 Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: 📦 Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

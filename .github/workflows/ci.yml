@@ -1,0 +1,62 @@
+name: LOC Cyber Command Portal CI Verification
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  code-integrity-audit:
+    name: Code Integrity & Asset Verification
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 🔍 Validate JavaScript Syntax
+        run: |
+          node -c app.js
+          node -c sw.js
+
+      - name: 🧪 Execute Verification Test Suite
+        run: |
+          node -e '
+            const fs = require("fs");
+            const html = fs.readFileSync("index.html", "utf8");
+            const app = fs.readFileSync("app.js", "utf8");
+            const css = fs.readFileSync("styles.css", "utf8");
+
+            const tests = [
+              ["HTML has 1 BNB link", html.includes("453747440013639680")],
+              ["HTML has referral link", html.includes("GRO_28502_BCPDJ")],
+              ["HTML has YouTube player", html.includes("pUUfSa2N3u0")],
+              ["HTML has Google Translate", html.includes("google_translate_element")],
+              ["App has VIP receive code", app.includes("LOC-VIP-BNB-2026-")],
+              ["CSS has referral banner", css.includes("binance-referral-banner-card")],
+              ["README exists & > 1M bytes", fs.statSync("README.md").size > 1000000]
+            ];
+
+            let fail = false;
+            tests.forEach(([t, p]) => {
+              console.log((p ? "PASS: " : "FAIL: ") + t);
+              if (!p) fail = true;
+            });
+            if (fail) process.exit(1);
+          '
+
+      - name: 📊 Verify Image Media Assets
+        run: |
+          ls -lah *.png
