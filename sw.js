@@ -5,7 +5,7 @@
  * ==============================================================================
  */
 
-const CACHE_NAME = 'loc-cyber-portal-v1.1';
+const CACHE_NAME = 'loc-cyber-portal-v1.3';
 
 // Core static assets, media artwork, feed, and intelligence corpus to pre-cache
 const STATIC_ASSETS = [
@@ -15,9 +15,12 @@ const STATIC_ASSETS = [
   './app.js',
   './podcast_cover.png',
   './binance_qr.png',
+  './binance_1bnb_qr.png',
+  './binance_1bnb_qr_square.png',
   './upi_qr.png',
   './rss.xml',
   'https://cdn.jsdelivr.net/npm/marked/marked.min.js',
+  './README.md',
   './cyber-mobile-world-report-part1.md',
   './cyber-mobile-world-report-part2.md',
   './cyber-mobile-world-report-part3.md',

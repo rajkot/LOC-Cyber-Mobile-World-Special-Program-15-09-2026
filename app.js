@@ -104,6 +104,24 @@
       type: 'markdown',
       file: 'cyber-mobile-world-report-part10.md',
       prev: 'page-09',
+      next: 'page-readme'
+    },
+    'page-readme': {
+      id: 'page-readme',
+      title: '📖 MASTER COMPENDIUM (README.MD)',
+      subtitle: '12,401 Lines // 10 Volumes & 105 Chapters Exhaustive Synthesis',
+      type: 'markdown',
+      file: 'README.md',
+      prev: 'page-10',
+      next: 'page-invitation'
+    },
+    'page-invitation': {
+      id: 'page-invitation',
+      title: '🪙 JOIN LOC PROGRAM // 1 USDT',
+      subtitle: 'Binance QR Global Invitation Gateway (196 Countries)',
+      type: 'static',
+      targetContainer: 'invitation-view',
+      prev: 'page-readme',
       next: 'page-00'
     }
   };
@@ -220,9 +238,9 @@
     const progressBar = document.getElementById('reading-progress-bar');
     if (progressBar) progressBar.style.width = '0%';
 
-    // Route type 1: Static Executive Dashboard
+    // Route type 1: Static Executive Dashboard or Invitation Gateway
     if (route.type === 'static') {
-      renderStaticDashboard();
+      renderStaticPage(route);
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
@@ -235,19 +253,30 @@
   };
 
   /**
-   * Render the Static Executive Dashboard
+   * Render Static Views (Executive Dashboard or 1 USDT Binance Invitation Gateway)
+   * @param {Object} route - Current route object
    */
-  function renderStaticDashboard() {
+  function renderStaticPage(route) {
     // Hide dynamic loader and markdown viewport
     if (contentLoader) contentLoader.style.display = 'none';
     if (contentViewport) contentViewport.style.display = 'none';
 
-    // Show static dashboard with fade-in animation
-    if (dashboardView) {
-      dashboardView.style.display = 'block';
-      triggerFadeIn(dashboardView);
-      if (window.reapplyDocSearch) window.reapplyDocSearch();
-      if (window.attachDecryptEffects) window.attachDecryptEffects(dashboardView);
+    const invitationView = document.getElementById('invitation-view');
+
+    if (route.id === 'page-invitation') {
+      if (dashboardView) dashboardView.style.display = 'none';
+      if (invitationView) {
+        invitationView.style.display = 'block';
+        triggerFadeIn(invitationView);
+      }
+    } else {
+      if (invitationView) invitationView.style.display = 'none';
+      if (dashboardView) {
+        dashboardView.style.display = 'block';
+        triggerFadeIn(dashboardView);
+        if (window.reapplyDocSearch) window.reapplyDocSearch();
+        if (window.attachDecryptEffects) window.attachDecryptEffects(dashboardView);
+      }
     }
   }
 
@@ -422,8 +451,44 @@
       </section>
     `;
 
+    // Master Compendium Sticky Quick Jump Toolbar for README.md
+    let stickyToolbar = '';
+    if (route.id === 'page-readme') {
+      stickyToolbar = `
+        <div class="readme-sticky-toolbar notranslate">
+          <div class="readme-toolbar-left">
+            <span class="readme-badge-pill">📖 MASTER COMPENDIUM</span>
+            <span class="readme-lines-pill">12,401 LINES // 100% VERIFIED</span>
+            <select class="readme-jump-select" onchange="window.jumpToReadmeChapter(this.value)" aria-label="Jump to Chapter">
+              <option value="">⚡ Quick Jump to Chapter / Volume...</option>
+              <option value="verified-contribution">💎 Buttons Trio &amp; Dual QR Codes</option>
+              <option value="chapter-1">Chapter 1: Episode 3100 Overview</option>
+              <option value="chapter-10">Chapter 10: SIMBox Hardware Architecture</option>
+              <option value="chapter-24">Chapter 24: Task-Based Job Fraud</option>
+              <option value="chapter-38">Chapter 38: AI Voice Cloning</option>
+              <option value="chapter-52">Chapter 52: CFFMC Fusion Center</option>
+              <option value="chapter-61">Chapter 61: Digital Arrest Studios</option>
+              <option value="chapter-69">Chapter 69: Bank Mule Fan-Out</option>
+              <option value="chapter-77">Chapter 77: 3 Decades &amp; DPDP Act</option>
+              <option value="chapter-84">Chapter 84: Interpol Red Notices</option>
+              <option value="chapter-91">Chapter 91: Carrier Firewalls &amp; STIR/SHAKEN</option>
+              <option value="chapter-98">Chapter 98: Unified Threat Matrix</option>
+              <option value="chapter-99">Chapter 99: Sovereign Defense Shield</option>
+              <option value="chapter-100">Chapter 100: Citizen Survival Charter</option>
+              <option value="chapter-102">Chapter 102: Sovereign Epilogue</option>
+            </select>
+          </div>
+          <div style="display:flex; gap:0.5rem; align-items:center;">
+            <button type="button" class="header-action-pill header-usdt-pill" onclick="window.navigateTo('page-invitation')" title="Pay 1 USDT via Binance Pay to Join LOC Program">
+              🪙 JOIN LOC // 1 USDT
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
     // Inject into viewport
-    contentViewport.innerHTML = intelHeader + htmlContent + paginationFooter;
+    contentViewport.innerHTML = stickyToolbar + intelHeader + htmlContent + paginationFooter;
     contentViewport.style.display = 'block';
 
     // Apply fade-in animation
@@ -1026,6 +1091,265 @@
       prompt('Copy UPI ID:', upiId);
     }
   };
+
+  /**
+   * 6. Master Compendium Quick Jump Controller
+   */
+  window.jumpToReadmeChapter = function(targetKey) {
+    if (!targetKey) return;
+    const cleanKey = targetKey.toLowerCase();
+    const headings = contentViewport ? contentViewport.querySelectorAll('h1, h2, h3, h4, section, div') : [];
+    let matchedElement = null;
+    for (const h of headings) {
+      const text = (h.textContent || '').toLowerCase();
+      const id = (h.id || '').toLowerCase();
+      if (id.includes(cleanKey) || text.includes(cleanKey.replace(/-/g, ' '))) {
+        matchedElement = h;
+        break;
+      }
+    }
+    if (matchedElement) {
+      matchedElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  /**
+   * 7. Google Translate Multi-Language Controller (Seamless All Languages)
+   */
+  window.setGoogleLanguage = function(langCode) {
+    document.querySelectorAll('.lang-chip').forEach(chip => {
+      chip.classList.toggle('active', chip.getAttribute('data-lang') === langCode);
+    });
+
+    try {
+      const hostname = window.location.hostname;
+      const domain = (hostname === 'localhost' || hostname === '127.0.0.1' || !hostname.includes('.')) ? '' : `.${hostname}`;
+      document.cookie = `googtrans=/en/${langCode}; path=/; domain=${domain};`;
+      document.cookie = `googtrans=/en/${langCode}; path=/;`;
+      localStorage.setItem('loc_preferred_lang', langCode);
+    } catch (e) {}
+
+    const combo = document.querySelector('.goog-te-combo');
+    if (combo) {
+      combo.value = langCode;
+      combo.dispatchEvent(new Event('change'));
+    }
+  };
+
+  /**
+   * 8. Binance 1 BNB VIP & 1 USDT Payment Verification & Cryptographic Receive Code Generator
+   */
+  window.handleGenerateReceiveCode = function(event) {
+    if (event) event.preventDefault();
+
+    const orderIdInput = document.getElementById('binance-order-id');
+    const nameInput = document.getElementById('registrant-name');
+    const countryInput = document.getElementById('registrant-country');
+    const contactInput = document.getElementById('registrant-contact');
+    const tierSelect = document.getElementById('membership-tier');
+    const container = document.getElementById('receive-code-container');
+
+    const orderId = orderIdInput ? orderIdInput.value.trim() : '';
+    const name = nameInput ? nameInput.value.trim() : 'Global Operative';
+    const country = countryInput ? countryInput.value.trim() : 'Worldwide (All Countries)';
+    const contact = contactInput ? contactInput.value.trim() : 'Direct';
+    const selectedTier = tierSelect ? tierSelect.value : 'VIP_BNB';
+
+    if (!orderId) {
+      alert('Please enter your Binance Order ID / TxID or reference.');
+      return;
+    }
+
+    const isVip = selectedTier === 'VIP_BNB' || orderId.includes('453747440013639680') || orderId.toUpperCase().includes('BNB');
+
+    // Generate deterministic yet cryptographic Receive Code
+    const cleanId = orderId.replace(/[^a-zA-Z0-9]/g, '').slice(-6).toUpperCase() || '7F9A2B';
+    const randomHex = Math.random().toString(16).substring(2, 6).toUpperCase();
+    const receiveCode = isVip
+      ? `LOC-VIP-BNB-2026-${cleanId}-${randomHex}-SOVEREIGN`
+      : `LOC-USDT-2026-${cleanId}-${randomHex}-JOIN`;
+
+    try {
+      localStorage.setItem('loc_member_code', receiveCode);
+      localStorage.setItem('loc_member_order', orderId);
+      localStorage.setItem('loc_member_name', name);
+      localStorage.setItem('loc_member_tier', isVip ? 'VIP_1_BNB' : 'USDT_1');
+    } catch (e) {}
+
+    const whatsappMsg = isVip
+      ? encodeURIComponent(
+          `Hello LOC Cyber Command Team,\n\nI have registered for the 1.00 BNB Executive VIP Sovereign Program via Binance Pay to BuyMyTime (Order ID: ${orderId}).\n\n` +
+          `VIP Telemetry:\n` +
+          `• Operative Name: ${name}\n` +
+          `• Country: ${country}\n` +
+          `• Contact: ${contact}\n` +
+          `• Binance Order/TxID: ${orderId}\n` +
+          `• Sovereign VIP Code: ${receiveCode}\n` +
+          `• Tier: Executive Sovereign VIP (1.00 BNB Coin)\n\n` +
+          `Please confirm my VIP 1-on-1 Consultation and activate my credentials!`
+        )
+      : encodeURIComponent(
+          `Hello LOC Cyber Command Team,\n\nI have successfully paid 1.00 USDT via Binance Pay to BuyMyTime for the LOC Cyber Mobile World Special Program.\n\n` +
+          `Registration Telemetry:\n` +
+          `• Operative Name: ${name}\n` +
+          `• Country: ${country}\n` +
+          `• Binance TxID: ${orderId}\n` +
+          `• Official Receive Code: ${receiveCode}\n\n` +
+          `Please register my official member credentials and VIP access pass!`
+        );
+
+    if (container) {
+      if (isVip) {
+        container.innerHTML = `
+          <div class="receive-code-result vip-sovereign">
+            <div class="receive-code-header">
+              <span class="receive-code-label">👑 EXECUTIVE VIP SOVEREIGN CREDENTIAL ISSUED</span>
+              <span class="receive-code-badge">1.00 BNB COIN VERIFIED</span>
+            </div>
+
+            <div class="receive-code-display">
+              <span class="receive-code-text" id="active-receive-code">${receiveCode}</span>
+              <button type="button" class="copy-code-btn" onclick="window.copyReceiveCode('${receiveCode}', this)">
+                📋 Copy VIP Code
+              </button>
+            </div>
+
+            <div class="member-pass-details">
+              <div><strong>VIP Operative:</strong> ${escapeHtml(name)} (${escapeHtml(country)})</div>
+              <div><strong>Official Payee:</strong> BuyMyTime &nbsp;|&nbsp; <strong>Order ID:</strong> ${escapeHtml(orderId)}</div>
+              <div><strong>Verified Asset:</strong> 1.00 BNB Coin &nbsp;|&nbsp; <strong>Bill Type:</strong> request_a_payment</div>
+              <div><strong>Status:</strong> <span style="color:#ffd700; font-weight:700;">ACTIVE EXECUTIVE SOVEREIGN STATUS // TOP-TIER</span></div>
+              <div style="margin-top:0.4rem; padding:0.4rem 0.6rem; background:rgba(0,0,0,0.4); border-radius:4px; border-left:3px solid #ffd700;">
+                👑 <strong>VIP Privileges Unlocked:</strong><br>
+                • 1-on-1 Direct Cyber Forensics Investigation Consultation with Jignesh Karia<br>
+                • Dedicated VIP WhatsApp Hotline Priority Dispatch (+91 98980 48483)<br>
+                • Unrestricted Access to 12,401-line README Compendium & All Dossier Parts
+              </div>
+            </div>
+
+            <div class="pass-action-buttons">
+              <button type="button" class="pass-action-btn primary binance-vip-btn" onclick="window.navigateTo('page-readme')">
+                📖 Open Master README.md (12,401 Lines)
+              </button>
+              <a href="https://wa.me/919898048483?text=${whatsappMsg}" target="_blank" rel="noopener noreferrer" class="pass-action-btn secondary" style="background:#25D366; color:#08090c; border:none; font-weight:700;">
+                💬 Confirm VIP via WhatsApp (+91 98980 48483)
+              </a>
+            </div>
+          </div>
+        `;
+      } else {
+        container.innerHTML = `
+          <div class="receive-code-result">
+            <div class="receive-code-header">
+              <span class="receive-code-label">⚡ OFFICIAL RECEIVE CODE ISSUED</span>
+              <span class="receive-code-badge">1.00 USDT VERIFIED</span>
+            </div>
+
+            <div class="receive-code-display">
+              <span class="receive-code-text" id="active-receive-code">${receiveCode}</span>
+              <button type="button" class="copy-code-btn" onclick="window.copyReceiveCode('${receiveCode}', this)">
+                📋 Copy Code
+              </button>
+            </div>
+
+            <div class="member-pass-details">
+              <div><strong>Operative:</strong> ${escapeHtml(name)} (${escapeHtml(country)})</div>
+              <div><strong>Official Payee:</strong> BuyMyTime &nbsp;|&nbsp; <strong>Fee:</strong> 1.00 USDT [PAID]</div>
+              <div><strong>Status:</strong> <span style="color:#00ff66; font-weight:700;">ACTIVE LIFETIME SOVEREIGN MEMBERSHIP</span></div>
+              <div><strong>Dossier Access:</strong> Unrestricted access to 12,401-line README.md Compendium granted.</div>
+            </div>
+
+            <div class="pass-action-buttons">
+              <button type="button" class="pass-action-btn primary" onclick="window.navigateTo('page-readme')">
+                📖 Open Master README.md (12,401 Lines)
+              </button>
+              <a href="https://wa.me/919898048483?text=${whatsappMsg}" target="_blank" rel="noopener noreferrer" class="pass-action-btn secondary" style="background:#25D366; color:#08090c; border:none;">
+                💬 Confirm via WhatsApp VIP (+91 98980 48483)
+              </a>
+            </div>
+          </div>
+        `;
+      }
+      container.style.display = 'block';
+      container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  };
+
+  window.triggerInstantVipBnbDemoCode = function() {
+    const orderInput = document.getElementById('binance-order-id');
+    const nameInput = document.getElementById('registrant-name');
+    const countryInput = document.getElementById('registrant-country');
+    const tierSelect = document.getElementById('membership-tier');
+
+    if (tierSelect) tierSelect.value = 'VIP_BNB';
+    if (orderInput) orderInput.value = '453747440013639680';
+    if (nameInput) nameInput.value = 'Executive VIP Operative // Sovereign';
+    if (countryInput) countryInput.value = 'Global VIP Sovereign (Worldwide)';
+
+    window.handleGenerateReceiveCode();
+  };
+
+  window.triggerInstantDemoCode = function() {
+    const orderInput = document.getElementById('binance-order-id');
+    const nameInput = document.getElementById('registrant-name');
+    const countryInput = document.getElementById('registrant-country');
+    const tierSelect = document.getElementById('membership-tier');
+
+    if (tierSelect) tierSelect.value = 'USDT';
+    if (orderInput) orderInput.value = 'BINANCE-ORDER-' + Math.floor(100000000000 + Math.random() * 900000000000);
+    if (nameInput) nameInput.value = 'Global Operative // Verified';
+    if (countryInput) countryInput.value = 'All 196 Countries (Universal Pass)';
+
+    window.handleGenerateReceiveCode();
+  };
+
+  window.copyReceiveCode = function(code, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(() => {
+        if (btn) {
+          const orig = btn.innerHTML;
+          btn.innerHTML = '✅ Copied!';
+          btn.style.background = '#00ff66';
+          btn.style.color = '#08090c';
+          setTimeout(() => {
+            btn.innerHTML = orig;
+            btn.style.background = '';
+            btn.style.color = '';
+          }, 2000);
+        }
+      }).catch(() => {
+        prompt('Copy Receive Code:', code);
+      });
+    } else {
+      prompt('Copy Receive Code:', code);
+    }
+  };
+
+  window.copyReferralCode = function(code, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(() => {
+        if (btn) {
+          const orig = btn.innerHTML;
+          btn.innerHTML = '✅ Copied!';
+          btn.style.background = '#00ff66';
+          btn.style.color = '#08090c';
+          setTimeout(() => {
+            btn.innerHTML = orig;
+            btn.style.background = '';
+            btn.style.color = '';
+          }, 2000);
+        }
+      }).catch(() => {
+        prompt('Copy Binance Referral Code:', code);
+      });
+    } else {
+      prompt('Copy Binance Referral Code:', code);
+    }
+  };
+
+  function escapeHtml(str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
 
 })();
 

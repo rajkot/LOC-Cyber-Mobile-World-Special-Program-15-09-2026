@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
   <!-- Content Security Policy (CSP) for Enterprise Security Audit -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; media-src 'self' https: data:; frame-src 'self' https://open.spotify.com https://*.spotify.com; connect-src 'self' https:; worker-src 'self' blob:; object-src 'none';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://translate.google.com https://translate.googleapis.com https://*.google.com https://*.gstatic.com https://www.youtube.com https://s.ytimg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://translate.googleapis.com https://www.google.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: https://translate.google.com https://translate.googleapis.com https://www.google.com https://*.gstatic.com https://i.ytimg.com https://img.youtube.com; media-src 'self' https: data:; frame-src 'self' https://open.spotify.com https://*.spotify.com https://translate.google.com https://*.google.com https://www.youtube.com https://youtube.com https://www.youtube-nocookie.com https://*.youtube.com; connect-src 'self' https: https://translate.googleapis.com https://translate.google.com; worker-src 'self' blob:; object-src 'none';">
 
   <!-- Open Graph / Social Share Metadata -->
   <meta property="og:title" content="LOC Cyber Mobile World Special Program | Apple Podcasts &amp; Spotify" />
@@ -103,6 +103,24 @@
           <div class="nav-item-text">
             <span class="nav-item-title">00. EXECUTIVE DASHBOARD</span>
             <span class="nav-item-desc">Threat Intel & Master Metrics</span>
+          </div>
+        </button>
+
+        <!-- Master README Compendium (12,400+ Lines) -->
+        <button type="button" class="nav-item" id="nav-page-readme" data-page="page-readme" aria-label="10,000-Line Master Compendium README.md">
+          <span class="nav-item-num" style="color: var(--neon-cyan);">📖</span>
+          <div class="nav-item-text">
+            <span class="nav-item-title" style="color: #ffffff;">MASTER COMPENDIUM</span>
+            <span class="nav-item-desc" style="color: var(--neon-cyan);">12,401 Lines // README.md</span>
+          </div>
+        </button>
+
+        <!-- 1 BNB VIP & 1 USDT Binance Global Invitation Gateway -->
+        <button type="button" class="nav-item" id="nav-page-invitation" data-page="page-invitation" aria-label="Join LOC Program with 1 BNB VIP or 1 USDT via Binance">
+          <span class="nav-item-num" style="color: #ffd700;">👑</span>
+          <div class="nav-item-text">
+            <span class="nav-item-title" style="color: #ffd700;">VIP &amp; GLOBAL INVITATION</span>
+            <span class="nav-item-desc">1 BNB VIP / 1 USDT Pass</span>
           </div>
         </button>
 
@@ -225,6 +243,13 @@
               </svg>
               <span>Official RSS Feed</span>
             </a>
+
+            <a href="https://youtube.com/@jigsi_karia?si=6YZETw98KheVfEF2" target="_blank" rel="noopener noreferrer" class="youtube-btn" style="width: 100%; justify-content: center; margin-top: 0.35rem;" aria-label="Official YouTube Channel @jigsi_karia">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+              <span>YouTube @jigsi_karia</span>
+            </a>
           </div>
         </div>
 
@@ -284,6 +309,47 @@
             <button type="button" id="doc-search-close" class="doc-search-close-btn" aria-label="Clear & Close search" title="Close search">✕</button>
           </div>
 
+          <!-- Automatic Google Translate System with Seamless All Language Integration -->
+          <div class="cyber-translate-container" id="cyber-translate-container" title="Google Translate - Seamless All Languages">
+            <span class="translate-label">
+              <svg class="translate-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+              <span>TRANSLATE:</span>
+            </span>
+
+            <!-- Quick Language Selector Chips -->
+            <div class="quick-lang-group" id="quick-lang-group">
+              <button type="button" class="lang-chip active" data-lang="en" onclick="setGoogleLanguage('en')" title="English">🇬🇧 EN</button>
+              <button type="button" class="lang-chip" data-lang="hi" onclick="setGoogleLanguage('hi')" title="Hindi (हिन्दी)">🇮🇳 HI</button>
+              <button type="button" class="lang-chip" data-lang="gu" onclick="setGoogleLanguage('gu')" title="Gujarati (ગુજરાતી)">🇮🇳 GU</button>
+              <button type="button" class="lang-chip" data-lang="es" onclick="setGoogleLanguage('es')" title="Spanish (Español)">🇪🇸 ES</button>
+              <button type="button" class="lang-chip" data-lang="fr" onclick="setGoogleLanguage('fr')" title="French (Français)">🇫🇷 FR</button>
+              <button type="button" class="lang-chip" data-lang="ar" onclick="setGoogleLanguage('ar')" title="Arabic (العربية)">🇸🇦 AR</button>
+              <button type="button" class="lang-chip" data-lang="zh-CN" onclick="setGoogleLanguage('zh-CN')" title="Chinese (中文)">🇨🇳 ZH</button>
+              <button type="button" class="lang-chip" data-lang="ru" onclick="setGoogleLanguage('ru')" title="Russian (Русский)">🇷🇺 RU</button>
+            </div>
+
+            <!-- Native Google Translate Element for 100+ All Languages -->
+            <div id="google_translate_element"></div>
+          </div>
+
+          <!-- Quick Access Navigation Action Pills -->
+          <button type="button" class="header-action-pill header-readme-pill" onclick="window.navigateTo('page-readme')" title="Read 12,401-Line Master Compendium">
+            <span>📖 README.MD</span>
+          </button>
+          <button type="button" class="header-action-pill header-vip-pill" onclick="window.navigateTo('page-invitation')" title="VIP Sovereign Registration: 1 BNB Coin via Binance Pay">
+            <span>👑 VIP 1 BNB</span>
+          </button>
+          <button type="button" class="header-action-pill header-usdt-pill" onclick="window.navigateTo('page-invitation')" title="Pay 1 USDT to Join LOC Program from Any Country">
+            <span>🪙 1 USDT JOIN</span>
+          </button>
+          <button type="button" class="header-action-pill header-bonus-pill" onclick="window.navigateTo('page-invitation')" title="New to Binance? Claim Up to 400 USDT / USDC Free Fee Rebates with Referral Code GRO_28502_BCPDJ">
+            <span>🎁 400 USDT BONUS</span>
+          </button>
+
           <!-- Global Podcast Streaming & RSS Platform Badges -->
           <div class="nav-podcast-group" id="nav-podcast-group">
             <a href="https://podcasts.apple.com/us/podcast/inside-billion-dollar-cyber-fraud-machine-digital-arrests-simboxes-international-scam-networks/id6810244376" target="_blank" rel="noopener noreferrer" class="apple-podcasts-btn nav-header-btn nav-apple-btn" id="header-apple-btn" aria-label="Listen on Apple Podcasts">
@@ -306,6 +372,13 @@
                 <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
               </svg>
               <span>RSS</span>
+            </a>
+
+            <a href="https://youtube.com/@jigsi_karia?si=6YZETw98KheVfEF2" target="_blank" rel="noopener noreferrer" class="youtube-btn nav-header-btn" id="header-youtube-btn" aria-label="Official YouTube Channel @jigsi_karia" style="padding: 0.25rem 0.65rem;">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+              <span>YouTube</span>
             </a>
           </div>
 
@@ -354,6 +427,113 @@
                 <span class="pulse-dot"></span>
                 <span>KEY EXPERTS: Joint CP Rajnish Gupta & Investigator Amit Dubey | Delhi Police IFSO</span>
               </div>
+            </section>
+
+            <!-- ====================================================================
+                 OFFICIAL YOUTUBE BROADCAST: LOC PROGRAM PART 1 (@jigsi_karia)
+                 ==================================================================== -->
+            <section class="youtube-embed-card" id="youtube-player-section" aria-label="Official YouTube Video Player">
+              <div class="youtube-card-header">
+                <div>
+                  <div class="youtube-badge">
+                    <span class="youtube-badge-pulse"></span>
+                    <span>OFFICIAL YOUTUBE BROADCAST // LOC PROGRAM PART 1</span>
+                  </div>
+                  <h2 class="youtube-card-title">Inside the Transnational Cyber Scam Machinery: Episode 3100 (Part 1)</h2>
+                  <p class="youtube-card-subtitle">
+                    Official Channel: <a href="https://youtube.com/@jigsi_karia?si=6YZETw98KheVfEF2" target="_blank" rel="noopener noreferrer" style="color: #ff4d4d; font-weight: 700; text-decoration: underline;">@jigsi_karia</a> | Featuring Jignesh Karia with Joint CP Rajnish Gupta &amp; Forensics Investigator Amit Dubey
+                  </p>
+                </div>
+
+                <div class="youtube-btn-group">
+                  <a href="https://youtube.com/@jigsi_karia?si=6YZETw98KheVfEF2" target="_blank" rel="noopener noreferrer" class="youtube-btn youtube-channel-btn" aria-label="Subscribe to YouTube Channel @jigsi_karia">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                    <span>Subscribe @jigsi_karia</span>
+                  </a>
+                  <a href="https://youtu.be/pUUfSa2N3u0" target="_blank" rel="noopener noreferrer" class="youtube-btn" aria-label="Watch Video on YouTube">
+                    <span>▶ Watch on YouTube</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Responsive 16:9 Live YouTube Player -->
+              <div class="youtube-iframe-wrapper">
+                <iframe 
+                  src="https://www.youtube.com/embed/pUUfSa2N3u0?rel=0&amp;modestbranding=1" 
+                  title="LOC Cyber Mobile World Special Program Part 1" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowfullscreen 
+                  loading="lazy">
+                </iframe>
+              </div>
+
+              <!-- Two-Part Architecture Explainer -->
+              <div class="two-part-program-grid">
+                <!-- Part 1 Card -->
+                <div class="part-card part-1">
+                  <div class="part-header">
+                    <span class="part-tag part-1">PART 1: PUBLIC BROADCAST</span>
+                    <span style="color: #ff4d4d; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700;">FREE ON YOUTUBE</span>
+                  </div>
+                  <div class="part-title">Universal Public Awareness &amp; Threat Anatomy</div>
+                  <p class="part-desc">
+                    Stream Episode 3100 Part 1 live on our official YouTube channel (<strong>@jigsi_karia</strong>). Covers SIMBox arrays, Ramayana psychological deception, and everyday cyber vector identification.
+                  </p>
+                  <a href="https://youtu.be/pUUfSa2N3u0" target="_blank" rel="noopener noreferrer" class="pro-copy-chip" style="text-align: center; text-decoration: none; color: #ff4d4d; border-color: rgba(255, 0, 0, 0.4);">
+                    Watch Part 1 on YouTube ↗
+                  </a>
+                </div>
+
+                <!-- Part 2 Card -->
+                <div class="part-card part-2">
+                  <div class="part-header">
+                    <span class="part-tag part-2">PART 2: JOINED MEMBERS ONLY</span>
+                    <span style="color: #ffd700; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700;">1 BNB VIP / 1 USDT</span>
+                  </div>
+                  <div class="part-title">Sovereign Recovery, 12,401-Line Compendium &amp; VIP Direct Consultation</div>
+                  <p class="part-desc">
+                    Part 2 is strictly exclusive for joined members. Choose <strong>👑 VIP Sovereign Pass (1.00 BNB Coin)</strong> for direct 1-on-1 cyber investigation consultation with Jignesh Karia, or join as a <strong>Global Citizen (1.00 USDT)</strong> via Binance Pay. If you don't use Binance, book an appointment for <strong>1 USD ($1 / ₹89)</strong> from ANY platform.
+                  </p>
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
+                    <a href="https://app.binance.com/uni-qr/request-to-pay?billOrderId=453747440013639680&amp;billType=request_a_payment" target="_blank" rel="noopener noreferrer" class="pro-copy-chip vip-chip" style="flex: 1; min-width: 200px; text-align: center; text-decoration: none; color: #ffd700; border-color: #ffd700; background: rgba(255, 215, 0, 0.12); font-weight: 700;">
+                      👑 Pay 1 BNB VIP (Binance Request) ↗
+                    </a>
+                    <button type="button" class="pro-copy-chip" onclick="window.navigateTo('page-invitation')" style="flex: 1; min-width: 180px; color: #f0b90b; border-color: #f0b90b;">
+                      🪙 Join 1 USDT / $1 Booking ↗
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Non-Binance Alternative Platforms Banner -->
+              <div class="alt-platforms-box">
+                <div class="alt-platforms-title">
+                  <span>💡 DON'T USE BINANCE? BOOK APPOINTMENT WITH 1 USD ($1 / ₹89) FROM ANY PLATFORM:</span>
+                </div>
+                <div class="alt-platforms-sub">
+                  We support all international and domestic payment channels. Choose your preferred platform to activate your Part 2 access:
+                </div>
+                <div class="alt-platforms-chips">
+                  <a href="https://wa.me/919898048483?text=Hello%20Jignesh%20Bhai%2C%20I%20want%20to%20book%20a%201%20USD%20Appointment%20for%20Part%202%20LOC%20Program" target="_blank" rel="noopener noreferrer" class="alt-chip" style="border-color: #25D366;">
+                    <span>💬 WhatsApp $1 Appointment (+91 98980 48483)</span>
+                  </a>
+                  <button type="button" class="alt-chip" onclick="window.navigateTo('page-invitation')" style="border-color: #00f0ff;">
+                    <span>⚡ UPI Instant (GPay / PhonePe / Paytm / BHIM)</span>
+                  </button>
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLScJ7WjuxEXqdoSlUtxN7NQ8UeKpbEAeA9iIO-IXOmBmYzlLHQ/viewform?usp=sharing&amp;ouid=116676179363878319046" target="_blank" rel="noopener noreferrer" class="alt-chip" style="border-color: #f0b90b;">
+                    <span>🪙 Google Form Official Access</span>
+                  </a>
+                  <a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&amp;ref=GRO_28502_BCPDJ&amp;utm_medium=app_share_link_whatsapp&amp;utm_source=referral_entrance" target="_blank" rel="noopener noreferrer" class="alt-chip" style="border-color: #00ff66; background: rgba(0, 255, 102, 0.08); color: #00ff66; font-weight: 700;">
+                    <span>🎁 Need Binance Account? Claim 400 USDT Free Fee Rebate (Code: GRO_28502_BCPDJ) ↗</span>
+                  </a>
+                  <a href="https://wa.me/c/919898048483" target="_blank" rel="noopener noreferrer" class="alt-chip" style="border-color: #b234ff;">
+                    <span>🛒 Digital Store Catalog</span>
+                  </a>
+                </div>
+              </div>
+
             </section>
 
             <!-- Official Responsive Spotify Embedded Audio Player & Intelligence Action Center -->
@@ -416,6 +596,55 @@
                   <span class="meta-capsule">📡 1930 Helpline Golden Hour</span>
                   <span class="meta-capsule">🛡 SIMBox & Mules</span>
                 </div>
+            </section>
+
+            <!-- ⚡ MASTER COMPENDIUM (README.MD) & GLOBAL INVITATION HERO BANNER -->
+            <section class="compendium-hero-card" id="dashboard-compendium-hero" aria-label="10,000-Line Master Compendium Access">
+              <div class="compendium-card-top">
+                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                  <span class="pulse-dot" style="background-color: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan);"></span>
+                  <span class="readme-badge-pill">12,401 LINES // 100% UNTOUCHED CORPUS</span>
+                </div>
+                <div class="readme-lines-pill">
+                  ⚡ 10 VOLUMES &amp; 105 CHAPTERS SYNTHESIZED
+                </div>
+              </div>
+
+              <h2 class="compendium-card-title">📖 MASTER FORENSIC COMPENDIUM (README.MD)</h2>
+              <p class="compendium-card-desc">
+                The full 12,401-line master research intelligence compendium is integrated directly into this portal. Synthesizes all 10 report volumes, Shenzhen SIMBox hardware telemetry, Ramayana psychological warfare, Chandni Chowk cash-out networks, 72-hour digital arrest siege blueprints, and the sovereign cyber defense architecture.
+              </p>
+
+              <div class="compendium-card-stats">
+                <div class="compendium-stat-item">
+                  <span class="compendium-stat-val">12,401</span>
+                  <span class="compendium-stat-lbl">Total Lines</span>
+                </div>
+                <div class="compendium-stat-item">
+                  <span class="compendium-stat-val">10</span>
+                  <span class="compendium-stat-lbl">Forensic Volumes</span>
+                </div>
+                <div class="compendium-stat-item">
+                  <span class="compendium-stat-val">105</span>
+                  <span class="compendium-stat-lbl">Technical Chapters</span>
+                </div>
+                <div class="compendium-stat-item">
+                  <span class="compendium-stat-val" style="color: #f0b90b;">1.00 USDT</span>
+                  <span class="compendium-stat-lbl">Global Access Fee</span>
+                </div>
+                <div class="compendium-stat-item">
+                  <span class="compendium-stat-val" style="color: #00ff66;">196</span>
+                  <span class="compendium-stat-lbl">Countries Worldwide</span>
+                </div>
+              </div>
+
+              <div class="compendium-card-actions">
+                <button type="button" class="pro-btn btn-buy-pro" style="background: linear-gradient(135deg, #00f0ff 0%, #0080ff 100%); color: #08090c; font-weight: 800;" onclick="window.navigateTo('page-readme')" aria-label="Open Master Compendium README.md">
+                  📖 READ 12,401-LINE MASTER README.MD
+                </button>
+                <button type="button" class="pro-btn btn-store" style="background: linear-gradient(135deg, #f0b90b 0%, #ff9900 100%); color: #08090c; font-weight: 800;" onclick="window.navigateTo('page-invitation')" aria-label="Join LOC Program via Binance Pay 1 USDT">
+                  🪙 JOIN LOC PROGRAM // PAY 1 USDT (BINANCE QR)
+                </button>
               </div>
             </section>
 
@@ -790,24 +1019,45 @@
                 <button type="button" class="pro-btn btn-store" onclick="window.open('https://wa.me/c/919898048483', '_blank')">🛒 OFFICIAL DIGITAL STORE</button>
               </div>
 
-              <!-- Both QR Codes Grid: Binance QR & UPI QR -->
+              <!-- QR Codes Grid: 1 BNB VIP, 1 USDT Binance, UPI Instant -->
               <div class="pro-qr-grid">
-                <!-- 1. Binance QR Card -->
+                <!-- 1. VIP Sovereign 1 BNB Card -->
+                <div class="pro-qr-card binance-card binance-vip-pro-card">
+                  <div class="pro-qr-card-header">
+                    <span class="pro-qr-tag vip-tag">👑 VIP SOVEREIGN</span>
+                    <span class="pro-qr-network" style="color: #ffd700; font-weight: 700;">1.00 BNB COIN</span>
+                  </div>
+                  <div class="pro-qr-img-box">
+                    <img src="./binance_1bnb_qr_square.png" alt="Binance 1 BNB VIP QR Code - BuyMyTime" class="pro-qr-image" loading="lazy">
+                  </div>
+                  <div class="pro-qr-info">
+                    <div class="pro-qr-title" style="color: #ffd700;">BuyMyTime (1 BNB VIP)</div>
+                    <div class="pro-qr-instruction">Order ID: 453747440013639680</div>
+                    <a href="https://app.binance.com/uni-qr/request-to-pay?billOrderId=453747440013639680&amp;billType=request_a_payment" target="_blank" rel="noopener noreferrer" class="pro-copy-chip" style="margin-top: 0.5rem; text-decoration: none; color: #ffd700; border-color: #ffd700; background: rgba(255, 215, 0, 0.15); display: inline-block; width: 100%; text-align: center; font-weight: 700;">
+                      ⚡ Pay 1 BNB on Binance App ↗
+                    </a>
+                  </div>
+                </div>
+
+                <!-- 2. Binance 1 USDT QR Card -->
                 <div class="pro-qr-card binance-card">
                   <div class="pro-qr-card-header">
                     <span class="pro-qr-tag binance-tag">BINANCE PAY</span>
-                    <span class="pro-qr-network">CRYPTO / USDT</span>
+                    <span class="pro-qr-network">1.00 USDT</span>
                   </div>
                   <div class="pro-qr-img-box">
                     <img src="./binance_qr.png" alt="Binance QR Code - BuyMyTime" class="pro-qr-image" loading="lazy">
                   </div>
                   <div class="pro-qr-info">
-                    <div class="pro-qr-title">BuyMyTime</div>
+                    <div class="pro-qr-title">BuyMyTime (1 USDT)</div>
                     <div class="pro-qr-instruction">Scan with Binance App to pay anywhere</div>
+                    <button type="button" class="pro-copy-chip" onclick="window.navigateTo('page-invitation')" style="margin-top: 0.5rem; color: #f0b90b; border-color: #f0b90b; width: 100%;">
+                      🪙 Open 1 USDT Invitation ↗
+                    </button>
                   </div>
                 </div>
 
-                <!-- 2. UPI QR Card -->
+                <!-- 3. UPI QR Card -->
                 <div class="pro-qr-card upi-card">
                   <div class="pro-qr-card-header">
                     <span class="pro-qr-tag upi-tag">UPI INSTANT</span>
@@ -828,8 +1078,344 @@
                   </div>
                 </div>
               </div>
+
+              <!-- Binance 400 USDT Referral Bonus Card -->
+              <div style="margin-top: 1.5rem; background: linear-gradient(135deg, rgba(0, 255, 102, 0.08) 0%, rgba(240, 185, 11, 0.08) 100%); border: 1px solid rgba(0, 255, 102, 0.35); border-radius: var(--border-radius-md); padding: 1.1rem 1.35rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span style="font-size: 1.5rem;">🎁</span>
+                  <div>
+                    <div style="font-family: var(--font-heading); font-size: 0.95rem; font-weight: 800; color: #ffffff;">
+                      Don't have a Binance Account yet? Claim Up to 400 USDT / USDC Free Fee Rebates!
+                    </div>
+                    <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem;">
+                      Create an account with referral code <strong style="color: #f0b90b;">GRO_28502_BCPDJ</strong> before paying your pass to get free trading fee credits for both of us!
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 0.5rem; align-items: center;">
+                  <a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&amp;ref=GRO_28502_BCPDJ&amp;utm_medium=app_share_link_whatsapp&amp;utm_source=referral_entrance" target="_blank" rel="noopener noreferrer" class="pro-copy-chip" style="color: #00ff66; border-color: #00ff66; background: rgba(0, 255, 102, 0.12); font-weight: 800; text-decoration: none; padding: 0.5rem 0.85rem;">
+                    🚀 Sign Up &amp; Claim 400 USDT ↗
+                  </a>
+                  <button type="button" class="pro-copy-chip" onclick="copyReferralCode('GRO_28502_BCPDJ', this)" style="color: #f0b90b; border-color: #f0b90b;">
+                    📋 Copy Code
+                  </button>
+                </div>
+              </div>
             </section>
 
+          </article>
+
+          <!-- ====================================================================
+               PAGE INVITATION: 1 BNB VIP & 1 USDT GLOBAL INVITATION GATEWAY
+               ==================================================================== -->
+          <article class="page-view" id="invitation-view" style="display: none;" aria-labelledby="heading-invitation">
+            <div class="invitation-page-container">
+
+              <!-- Hero Header -->
+              <section class="invitation-hero-section">
+                <div class="invitation-badge">
+                  <span class="pulse-dot" style="background-color: #ffd700; box-shadow: 0 0 10px #ffd700;"></span>
+                  <span>GLOBAL ACCESS GATEWAY // 196 COUNTRIES // VIP SOVEREIGN TIER</span>
+                </div>
+                <h1 class="invitation-title" id="heading-invitation">JOIN LOC CYBER SPECIAL PROGRAM // 1 BNB VIP &amp; 1 USDT</h1>
+                <p class="invitation-subtitle">
+                  Universal worldwide invitation gateway. Register for the premier <strong>👑 Executive VIP Sovereign Access (1.00 BNB Coin)</strong> for direct 1-on-1 cyber investigation consultation with Jignesh Karia, or join as a <strong>🟡 Global Citizen (1.00 USDT)</strong> via Binance Pay. If you don't use Binance, book an appointment for <strong>1 USD ($1 / ₹89)</strong> from any platform worldwide.
+                </p>
+
+                <!-- Quick Action Header Buttons -->
+                <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; margin-bottom: 1.25rem;">
+                  <a href="https://app.binance.com/uni-qr/request-to-pay?billOrderId=453747440013639680&amp;billType=request_a_payment" target="_blank" rel="noopener noreferrer" class="pass-action-btn primary binance-vip-btn" style="flex: 1; min-width: 240px; padding: 0.65rem 1rem;">
+                    👑 PAY 1 BNB ON BINANCE APP (DIRECT LINK) ↗
+                  </a>
+                  <a href="#binance-usdt-section" class="pass-action-btn secondary" onclick="document.getElementById('invitation-binance-qr')?.scrollIntoView({behavior:'smooth'}); return false;" style="flex: 1; min-width: 200px; color: #f0b90b; border-color: rgba(240, 185, 11, 0.4); padding: 0.65rem 1rem;">
+                    🪙 PAY 1 USDT VIA BINANCE QR
+                  </a>
+                  <a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&amp;ref=GRO_28502_BCPDJ&amp;utm_medium=app_share_link_whatsapp&amp;utm_source=referral_entrance" target="_blank" rel="noopener noreferrer" class="pass-action-btn secondary" style="flex: 1; min-width: 220px; color: #00ff66; border-color: rgba(0, 255, 102, 0.4); padding: 0.65rem 1rem; background: rgba(0, 255, 102, 0.08);">
+                    🎁 CLAIM 400 USDT BONUS ↗
+                  </a>
+                  <a href="https://wa.me/919898048483?text=Hello%20LOC%20Team%2C%20I%20want%20to%20book%20a%201%20USD%20Appointment%20for%20the%20LOC%20Program" target="_blank" rel="noopener noreferrer" class="pass-action-btn secondary" style="flex: 1; min-width: 200px; color: #25D366; border-color: rgba(37, 211, 102, 0.4); padding: 0.65rem 1rem;">
+                    💬 WHATSAPP $1 APPOINTMENT
+                  </a>
+                  <button type="button" class="pass-action-btn primary" onclick="window.navigateTo('page-readme')" style="flex: 1; min-width: 200px; padding: 0.65rem 1rem;">
+                    📖 READ COMPENDIUM (12,401 LINES)
+                  </button>
+                </div>
+
+                <div class="countries-ribbon">
+                  <span class="countries-ribbon-label">🌍 Supported Territories:</span>
+                  <span class="countries-tag">India 🇮🇳</span>
+                  <span class="countries-tag">United States 🇺🇸</span>
+                  <span class="countries-tag">United Kingdom 🇬🇧</span>
+                  <span class="countries-tag">United Arab Emirates 🇦🇪</span>
+                  <span class="countries-tag">Singapore 🇸🇬</span>
+                  <span class="countries-tag">Germany 🇩🇪</span>
+                  <span class="countries-tag">France 🇫🇷</span>
+                  <span class="countries-tag">Canada 🇨🇦</span>
+                  <span class="countries-tag">Australia 🇦🇺</span>
+                  <span class="countries-tag">Japan 🇯🇵</span>
+                  <span class="countries-tag">+ All 196 Countries Worldwide</span>
+                </div>
+              </section>
+
+              <!-- ================================================================
+                   BINANCE 400 USDT / USDC WELCOME REWARDS & REFERRAL INVITATION
+                   ================================================================ -->
+              <section class="binance-referral-banner-card" aria-label="Binance Referral 400 USDT Rewards">
+                <div class="referral-badge-row">
+                  <span class="pulse-dot" style="background-color: #00ff66; box-shadow: 0 0 10px #00ff66;"></span>
+                  <span class="referral-badge">🎁 OFFICIAL BINANCE INVITE // EARN TOGETHER</span>
+                  <span class="referral-reward-tag">UP TO 400 USDT / USDC FREE TRANSACTION FEE CREDIT</span>
+                </div>
+                <h2 class="referral-banner-title">New to Binance? Claim Up to 400 USDT Free Transaction Fee Credit</h2>
+                <p class="referral-banner-desc">
+                  If you don't have a Binance account yet to pay your <strong>1.00 USDT</strong> Global Pass or <strong>1.00 BNB VIP Pass</strong>, sign up through our official LOC Cyber Command invite link! <strong>Both of us receive up to 400 USDT / USDC in trading fee rebates and transaction credits</strong> so you can participate with zero net friction.
+                </p>
+                <div class="referral-action-row">
+                  <a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&amp;ref=GRO_28502_BCPDJ&amp;utm_medium=app_share_link_whatsapp&amp;utm_source=referral_entrance" target="_blank" rel="noopener noreferrer" class="referral-claim-btn" aria-label="Claim 400 USDT Binance Bonus">
+                    <span>🚀 SIGN UP &amp; CLAIM 400 USDT REBATE ON BINANCE ↗</span>
+                  </a>
+                  <div class="referral-code-pill">
+                    <span class="ref-lbl">Referral Code:</span>
+                    <code class="ref-code">GRO_28502_BCPDJ</code>
+                    <button type="button" class="ref-copy-btn" onclick="copyReferralCode('GRO_28502_BCPDJ', this)" title="Copy Referral Code">
+                      <span>Copy Code</span>
+                    </button>
+                  </div>
+                </div>
+              </section>
+
+              <!-- ================================================================
+                   DUAL BINANCE GATEWAYS SHOWCASE: 1 BNB VIP & 1 USDT GLOBAL
+                   ================================================================ -->
+              <div class="binance-tiers-grid">
+
+                <!-- TIER 1: 👑 VIP Executive Sovereign Registration (1.00 BNB Coin) -->
+                <section class="binance-gateway-card binance-vip-card" id="binance-vip-section" aria-label="1 BNB VIP Sovereign Registration Gateway">
+                  <div class="binance-card-badge">
+                    <div style="display:flex; align-items:center; gap:0.5rem;">
+                      <span class="pulse-dot" style="background-color: #ffd700;"></span>
+                      <span style="font-family: var(--font-display); font-size: 0.85rem; font-weight: 700; color: #ffd700;">👑 VIP SOVEREIGN REGISTRATION</span>
+                    </div>
+                    <span class="vip-fee-tag">1.00 BNB COIN</span>
+                  </div>
+
+                  <!-- High-Res Binance 1 BNB QR Box -->
+                  <div class="binance-qr-hud-box" style="box-shadow: 0 0 30px rgba(255, 215, 0, 0.4); border: 2px solid #ffd700;">
+                    <img src="./binance_1bnb_qr_square.png" alt="Binance Pay 1 BNB VIP QR Code - BuyMyTime" id="invitation-binance-1bnb-qr">
+                  </div>
+
+                  <!-- Direct Binance Payment Link Button -->
+                  <a href="https://app.binance.com/uni-qr/request-to-pay?billOrderId=453747440013639680&amp;billType=request_a_payment" target="_blank" rel="noopener noreferrer" class="pass-action-btn primary binance-vip-btn" style="width: 100%; margin-bottom: 1.25rem; font-size: 0.95rem; padding: 0.75rem 1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                    ⚡ OPEN &amp; PAY 1 BNB ON BINANCE APP ↗
+                  </a>
+
+                  <!-- Payee Credentials Box -->
+                  <div class="binance-payee-info" style="border-color: rgba(255, 215, 0, 0.3);">
+                    <div class="payee-row">
+                      <span class="payee-lbl">Official Payee:</span>
+                      <span class="payee-val" style="color: #ffd700;">BuyMyTime</span>
+                    </div>
+                    <div class="payee-row">
+                      <span class="payee-lbl">Binance Bill Order ID:</span>
+                      <span class="payee-val" style="color: #ffd700; font-size: 0.82rem;">453747440013639680</span>
+                    </div>
+                    <div class="payee-row">
+                      <span class="payee-lbl">Bill Type:</span>
+                      <span class="payee-val">request_a_payment</span>
+                    </div>
+                    <div class="payee-row">
+                      <span class="payee-lbl">Required Asset:</span>
+                      <span class="payee-val" style="color: #00ff66;">1.00 BNB Coin</span>
+                    </div>
+                    <div class="payee-row">
+                      <span class="payee-lbl">VIP Privileges:</span>
+                      <span class="payee-val" style="color: #ffd700;">1-on-1 Forensics Review + Hotline</span>
+                    </div>
+                  </div>
+
+                  <div style="display:flex; gap:0.5rem; width:100%;">
+                    <button type="button" class="pass-action-btn primary binance-vip-btn" onclick="window.open('https://wa.me/919898048483?text=Hello%20LOC%20Team%2C%20I%20am%20registering%20for%20the%201%20BNB%20VIP%20Sovereign%20Program%20via%20Binance%20Pay', '_blank')">
+                      💬 VIP WhatsApp Concierge
+                    </button>
+                    <button type="button" class="pass-action-btn secondary" onclick="window.open('./binance_1bnb_qr.png', '_blank')">
+                      ⬇ View Full Poster
+                    </button>
+                  </div>
+                </section>
+
+                <!-- TIER 2: 🟡 Global Citizen Invitation Pass (1.00 USDT) -->
+                <section class="binance-gateway-card" id="binance-usdt-section" aria-label="1 USDT Binance Global Gateway">
+                  <div class="binance-card-badge">
+                    <div style="display:flex; align-items:center; gap:0.5rem;">
+                      <span class="pulse-dot" style="background-color: #f0b90b;"></span>
+                      <span style="font-family: var(--font-display); font-size: 0.85rem; font-weight: 700; color: #f0b90b;">🟡 GLOBAL CITIZEN INVITATION</span>
+                    </div>
+                    <span class="binance-fee-tag">1.00 USDT</span>
+                  </div>
+
+                  <!-- High-Res Binance QR Box -->
+                  <div class="binance-qr-hud-box">
+                    <img src="./binance_qr.png" alt="Binance Pay QR Code - BuyMyTime" id="invitation-binance-qr">
+                  </div>
+
+                  <!-- Quick Info Pill -->
+                  <div style="margin-bottom: 1.25rem; font-family: var(--font-heading); font-size: 0.85rem; color: #cbd5e1;">
+                    Scan with Binance App to transfer exactly 1.00 USDT
+                  </div>
+
+                  <!-- Payee Credentials Box -->
+                  <div class="binance-payee-info">
+                    <div class="payee-row">
+                      <span class="payee-lbl">Official Payee:</span>
+                      <span class="payee-val" style="color: #f0b90b;">BuyMyTime</span>
+                    </div>
+                    <div class="payee-row">
+                      <span class="payee-lbl">Payment Network:</span>
+                      <span class="payee-val">Binance Pay (Zero Gas Fees)</span>
+                    </div>
+                    <div class="payee-row">
+                      <span class="payee-lbl">Required Amount:</span>
+                      <span class="payee-val" style="color: #00ff66;">1.00 USDT Exactly</span>
+                    </div>
+                    <div class="payee-row">
+                      <span class="payee-lbl">Access Scope:</span>
+                      <span class="payee-val">All 196 Countries / Lifetime</span>
+                    </div>
+                    <div class="payee-row">
+                      <span class="payee-lbl">Dossier Access:</span>
+                      <span class="payee-val">Full 12,401-line README</span>
+                    </div>
+                  </div>
+
+                  <div style="display:flex; gap:0.5rem; width:100%;">
+                    <button type="button" class="pass-action-btn primary" onclick="window.open('https://wa.me/919898048483?text=Hello%20LOC%20Team%2C%20I%20am%20joining%20the%20LOC%20Program%20via%201%20USDT%20Binance%20Pay', '_blank')" style="background:#f0b90b; color:#08090c;">
+                      💬 WhatsApp Concierge
+                    </button>
+                    <button type="button" class="pass-action-btn secondary" onclick="window.open('./binance_qr.png', '_blank')">
+                      ⬇ Download QR
+                    </button>
+                  </div>
+                </section>
+
+              </div>
+
+              <!-- ================================================================
+                   VERIFICATION / RECEIVE CODE FORM & ALTERNATIVE CHANNELS GRID
+                   ================================================================ -->
+              <div class="invitation-split-grid">
+
+                <!-- Left Column: Verification & Receive Code Issuance Form -->
+                <section class="invitation-action-card" aria-label="Receive Code Issuance">
+                  <div class="action-card-header">
+                    <h2 class="action-card-title">⚡ VERIFY PAYMENT &amp; GENERATE RECEIVE CODE</h2>
+                    <p class="action-card-sub">
+                      Scan the Binance QR code above with your Binance App, send 1 BNB (VIP) or 1 USDT (Global) to BuyMyTime, and enter your Binance Order ID or Transaction Hash below to issue your sovereign Receive Code.
+                    </p>
+                  </div>
+
+                  <form id="receive-code-form" onsubmit="handleGenerateReceiveCode(event)">
+                    <div class="form-group">
+                      <label class="form-label" for="membership-tier">Membership Tier *</label>
+                      <select id="membership-tier" class="form-input">
+                        <option value="VIP_BNB" selected>👑 VIP Sovereign Member (1.00 BNB Coin // Order: 453747440013639680)</option>
+                        <option value="USDT">🟡 Global Citizen Member (1.00 USDT // BuyMyTime)</option>
+                        <option value="ALT_1USD">🔵 Alternative Rail Member ($1 / ₹89 Appointment)</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="binance-order-id">Binance Order ID / TxID / Appointment Reference *</label>
+                      <input type="text" id="binance-order-id" class="form-input" placeholder="e.g. 453747440013639680 (1 BNB VIP) or Binance TxID" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="registrant-name">Your Name / Agent Moniker *</label>
+                      <input type="text" id="registrant-name" class="form-input" placeholder="e.g. Alex Rivera / Operative_9" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="registrant-country">Country of Origin (Worldwide) *</label>
+                      <input type="text" id="registrant-country" class="form-input" placeholder="e.g. India, United States, UAE, Singapore, Germany..." value="Worldwide (All Countries)" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="registrant-contact">WhatsApp / Email (For Direct Dispatch)</label>
+                      <input type="text" id="registrant-contact" class="form-input" placeholder="+91 / user@domain.com">
+                    </div>
+
+                    <button type="submit" class="form-submit-btn" id="generate-code-btn">
+                      ⚡ VERIFY &amp; GENERATE OFFICIAL RECEIVE CODE
+                    </button>
+                  </form>
+
+                  <div style="display: flex; flex-direction: column; gap: 0.35rem; margin-top: 0.75rem;">
+                    <button type="button" class="demo-trigger-btn vip" onclick="triggerInstantVipBnbDemoCode()">
+                      👑 Instant 1-Click VIP 1 BNB Demo (Immediate Sovereign Pass)
+                    </button>
+                    <button type="button" class="demo-trigger-btn" onclick="triggerInstantDemoCode()">
+                      🧪 Instant 1-Click 1 USDT Demo (Global Member Pass)
+                    </button>
+                  </div>
+
+                  <!-- Dynamic Encrypted Receive Code & Digital Certificate Box -->
+                  <div id="receive-code-container" style="display: none;"></div>
+
+                </section>
+
+                <!-- Right Column: Non-Binance Alternative Platforms // 1 USD ($1 / ₹89) -->
+                <section class="invitation-action-card" aria-label="Alternative Non-Binance Platforms" style="border-color: rgba(0, 240, 255, 0.35);">
+                  <div class="action-card-header">
+                    <div class="pro-section-badge" style="margin-bottom: 0.5rem;">
+                      <span class="pulse-dot" style="background-color: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan);"></span>
+                      <span>ALTERNATIVE NON-BINANCE PLATFORMS // 1 USD ($1 / ₹89)</span>
+                    </div>
+                    <h2 class="action-card-title">Don't Use Binance? Book with 1 USD from Any Platform</h2>
+                    <p class="action-card-sub">
+                      We support all international and domestic payment rails. Pay 1 USD ($1 / ₹89) via UPI, book directly via WhatsApp, or submit your details via our official form:
+                    </p>
+                  </div>
+
+                  <!-- Action Buttons Trio -->
+                  <div style="display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.25rem;">
+                    <button type="button" class="pro-btn btn-buy-pro" onclick="window.open('https://wa.me/919898048483?text=Hello%20Jignesh%20Bhai%2C%20I%20want%20to%20book%20a%201%20USD%20Appointment%20for%20Part%202%20LOC%20Program', '_blank')">
+                      ⚡ BOOK 1 USD APPOINTMENT (WHATSAPP)
+                    </button>
+                    <button type="button" class="pro-btn btn-donate" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLScJ7WjuxEXqdoSlUtxN7NQ8UeKpbEAeA9iIO-IXOmBmYzlLHQ/viewform?usp=sharing&amp;ouid=116676179363878319046', '_blank')">
+                      🪙 GOOGLE FORM PAYMENT PORTAL
+                    </button>
+                    <button type="button" class="pro-btn btn-store" onclick="window.open('https://wa.me/c/919898048483', '_blank')">
+                      🛒 OFFICIAL DIGITAL STORE
+                    </button>
+                    <a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&amp;ref=GRO_28502_BCPDJ&amp;utm_medium=app_share_link_whatsapp&amp;utm_source=referral_entrance" target="_blank" rel="noopener noreferrer" class="pro-btn" style="background: linear-gradient(135deg, #00ff66 0%, #00cc52 100%); color: #08090c; font-weight: 800; text-decoration: none; text-align: center; justify-content: center; box-shadow: 0 0 15px rgba(0, 255, 102, 0.4);">
+                      🎁 CREATE BINANCE ACCOUNT (400 USDT FREE REBATE)
+                    </a>
+                  </div>
+
+                  <!-- Instant UPI QR Card -->
+                  <div class="pro-qr-card upi-card" style="width: 100%;">
+                    <div class="pro-qr-card-header">
+                      <span class="pro-qr-tag upi-tag">UPI INSTANT (ALL INDIAN APPS)</span>
+                      <span class="pro-qr-network">FEE: ₹89 / 1 USD</span>
+                    </div>
+                    <div class="pro-qr-img-box" style="width: 180px; height: 180px; margin: 0.5rem auto;">
+                      <img src="./upi_qr.png" alt="UPI QR Code - Jignesh Jayantilal Kariya" class="pro-qr-image" loading="lazy">
+                    </div>
+                    <div class="pro-qr-info" style="width: 100%;">
+                      <div class="pro-qr-title">Jignesh Jayantilal Kariya</div>
+                      <div class="pro-upi-row" style="justify-content: center; gap: 0.5rem;">
+                        <code class="pro-upi-id">oo71097145198@okaxis</code>
+                        <button type="button" class="pro-copy-chip" onclick="copyUPI(this)" title="Copy UPI ID">
+                          <span>Copy UPI</span>
+                        </button>
+                      </div>
+                      <div class="pro-qr-instruction" style="margin-top: 0.35rem;">Scan with GPay, PhonePe, Paytm, BHIM or any banking app</div>
+                    </div>
+                  </div>
+                </section>
+
+              </div>
+
+            </div>
           </article>
 
           <!-- ====================================================================
@@ -861,6 +1447,18 @@
 
     </div>
   </div>
+
+  <!-- Automatic Google Translate Official Engine Script -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   <!-- Interactive Portal Controller Script -->
   <script src="./app.js"></script>
