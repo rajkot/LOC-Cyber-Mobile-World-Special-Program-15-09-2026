@@ -1114,8 +1114,48 @@
   };
 
   /**
-   * 7. Google Translate Multi-Language Controller (Seamless All Languages)
+   * 7. Google Translate Multi-Language Controller (Seamless All Languages & Automatic User Language Detection)
    */
+  const LOC_LANG_MAP = {
+    'en': 'English',
+    'gu': 'ગુજરાતી',
+    'hi': 'हिन्दी',
+    'es': 'Español',
+    'fr': 'Français',
+    'de': 'Deutsch',
+    'ar': 'العربية',
+    'zh-CN': '中文',
+    'zh': '中文',
+    'ru': 'Русский',
+    'ja': '日本語',
+    'pt': 'Português',
+    'it': 'Italiano',
+    'ko': '한국어'
+  };
+
+  function getBrowserDetectedLanguage() {
+    try {
+      const raw = (navigator.language || (navigator.languages && navigator.languages[0]) || 'en').toLowerCase();
+      if (raw.startsWith('zh-cn') || raw === 'zh-sg') return 'zh-CN';
+      if (raw.startsWith('zh-tw') || raw.startsWith('zh-hk')) return 'zh-TW';
+      const code = raw.split('-')[0];
+      return code || 'en';
+    } catch(e) {
+      return 'en';
+    }
+  }
+
+  function updateTranslateBadge(langCode, isAuto) {
+    const label = document.getElementById('translate-active-label');
+    if (!label) return;
+    const name = LOC_LANG_MAP[langCode] || langCode.toUpperCase();
+    if (isAuto && langCode !== 'en') {
+      label.textContent = `🌐 AUTO: ${name}`;
+    } else {
+      label.textContent = `🌐 ${name}`;
+    }
+  }
+
   window.setGoogleLanguage = function(langCode) {
     document.querySelectorAll('.lang-chip').forEach(chip => {
       chip.classList.toggle('active', chip.getAttribute('data-lang') === langCode);
@@ -1134,7 +1174,77 @@
       combo.value = langCode;
       combo.dispatchEvent(new Event('change'));
     }
+
+    updateTranslateBadge(langCode, false);
   };
+
+  window.toggleDetectedLanguage = function() {
+    const detected = getBrowserDetectedLanguage();
+    const current = localStorage.getItem('loc_preferred_lang') || detected;
+    if (current && current !== 'en') {
+      // Toggle back to English
+      window.setGoogleLanguage('en');
+    } else {
+      // Toggle to detected user language (or Gujarati by default if English)
+      const target = detected !== 'en' ? detected : 'gu';
+      window.setGoogleLanguage(target);
+    }
+  };
+
+  // Automatic language synchronization & Google Translate combo observer
+  (function initGoogleTranslateAutoSync() {
+    let targetLang = 'en';
+    let isAuto = false;
+    try {
+      const saved = localStorage.getItem('loc_preferred_lang');
+      if (saved && saved !== 'auto') {
+        targetLang = saved;
+      } else {
+        const detected = getBrowserDetectedLanguage();
+        if (detected && detected !== 'en') {
+          targetLang = detected;
+          isAuto = true;
+        }
+      }
+    } catch(e) {}
+
+    if (targetLang && targetLang !== 'en') {
+      try {
+        const hostname = window.location.hostname;
+        const domain = (hostname === 'localhost' || hostname === '127.0.0.1' || !hostname.includes('.')) ? '' : `.${hostname}`;
+        document.cookie = `googtrans=/en/${targetLang}; path=/; domain=${domain};`;
+        document.cookie = `googtrans=/en/${targetLang}; path=/;`;
+      } catch(e) {}
+    }
+
+    updateTranslateBadge(targetLang, isAuto);
+
+    let attempts = 0;
+    const pollInterval = setInterval(() => {
+      attempts++;
+      const combo = document.querySelector('.goog-te-combo');
+      if (combo) {
+        clearInterval(pollInterval);
+        
+        if (targetLang && targetLang !== 'en' && combo.value !== targetLang) {
+          combo.value = targetLang;
+          combo.dispatchEvent(new Event('change'));
+        }
+
+        combo.addEventListener('change', function() {
+          const selected = this.value || 'en';
+          try {
+            localStorage.setItem('loc_preferred_lang', selected);
+          } catch(e) {}
+          updateTranslateBadge(selected, false);
+          document.querySelectorAll('.lang-chip').forEach(chip => {
+            chip.classList.toggle('active', chip.getAttribute('data-lang') === selected);
+          });
+        });
+      }
+      if (attempts > 50) clearInterval(pollInterval);
+    }, 200);
+  })();
 
   /**
    * 8. Binance 1 BNB VIP & 1 USDT Payment Verification & Cryptographic Receive Code Generator

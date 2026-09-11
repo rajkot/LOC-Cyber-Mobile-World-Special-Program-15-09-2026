@@ -3084,6 +3084,52 @@ mark.cyber-highlight.current {
   backdrop-filter: blur(10px);
 }
 
+.cyber-translate-container {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(13, 17, 26, 0.85);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  padding: 0.2rem 0.45rem;
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.cyber-translate-container:hover {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.35);
+}
+
+.single-translate-btn-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.translate-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--neon-cyan);
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.translate-badge-pill:hover {
+  background: rgba(0, 240, 255, 0.2);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
 .translate-label {
   display: flex;
   align-items: center;
@@ -3144,33 +3190,41 @@ mark.cyber-highlight.current {
 
 .goog-te-gadget {
   font-family: var(--font-heading) !important;
-  font-size: 0.8rem !important;
-  color: var(--text-muted) !important;
+  font-size: 0 !important;
+  color: transparent !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  line-height: 1 !important;
 }
 
 .goog-te-gadget .goog-te-combo {
-  background: #0d111a !important;
-  color: var(--neon-cyan) !important;
-  border: 1px solid rgba(0, 240, 255, 0.35) !important;
-  border-radius: 6px !important;
-  padding: 0.22rem 0.6rem !important;
+  background: #08090c !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(0, 240, 255, 0.4) !important;
+  border-radius: 5px !important;
+  padding: 0.22rem 0.55rem !important;
   font-family: var(--font-heading) !important;
   font-size: 0.8rem !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
   outline: none !important;
   cursor: pointer !important;
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.2) !important;
   transition: all var(--transition-fast) !important;
+  max-width: 165px !important;
 }
 
 .goog-te-gadget .goog-te-combo:hover,
 .goog-te-gadget .goog-te-combo:focus {
   border-color: var(--neon-cyan) !important;
-  box-shadow: 0 0 10px rgba(0, 240, 255, 0.4) !important;
+  color: var(--neon-cyan) !important;
+  box-shadow: 0 0 14px rgba(0, 240, 255, 0.5) !important;
 }
 
 .goog-te-gadget .goog-te-combo option {
   background: #08090c !important;
   color: #ffffff !important;
+  font-family: var(--font-heading) !important;
+  font-size: 0.85rem !important;
 }
 
 .goog-te-banner-frame.skiptranslate,
@@ -3184,10 +3238,6 @@ mark.cyber-highlight.current {
 body {
   top: 0px !important;
   position: static !important;
-}
-
-.skiptranslate:not(.goog-te-gadget):not(#google_translate_element) {
-  display: none !important;
 }
 
 #goog-gt-tt, .goog-te-balloon-frame {

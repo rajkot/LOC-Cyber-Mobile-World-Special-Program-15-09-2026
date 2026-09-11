@@ -309,31 +309,28 @@
             <button type="button" id="doc-search-close" class="doc-search-close-btn" aria-label="Clear & Close search" title="Close search">✕</button>
           </div>
 
-          <!-- Automatic Google Translate System with Seamless All Language Integration -->
-          <div class="cyber-translate-container" id="cyber-translate-container" title="Google Translate - Seamless All Languages">
-            <span class="translate-label">
-              <svg class="translate-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="2" y1="12" x2="22" y2="12"></line>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-              </svg>
-              <span>TRANSLATE:</span>
-            </span>
+          <!-- Automatic Google Translate System: Single-Button Facility for All 100+ Languages & Auto-Detection -->
+          <div class="cyber-translate-container" id="cyber-translate-container" title="Automatic Google Translate Facility (100+ Languages)">
+            <div class="single-translate-btn-wrap" id="single-translate-btn-wrap">
+              <button type="button" class="translate-badge-pill" id="translate-badge-pill" onclick="window.toggleDetectedLanguage()" title="Click to Toggle Between Auto-Detected Language & English">
+                <span class="pulse-dot" style="background-color: #00f0ff; width: 6px; height: 6px; box-shadow: 0 0 8px #00f0ff;"></span>
+                <span id="translate-active-label">🌐 AUTO: EN</span>
+              </button>
+              <!-- Native Google Translate Element: Single Dropdown for All 100+ Worldwide Languages -->
+              <div id="google_translate_element"></div>
+            </div>
 
-            <!-- Quick Language Selector Chips -->
-            <div class="quick-lang-group" id="quick-lang-group">
+            <!-- Compact Language Selector Group (Preserves architectural selectors and quick access) -->
+            <div class="quick-lang-group" id="quick-lang-group" style="display: none;">
               <button type="button" class="lang-chip active" data-lang="en" onclick="setGoogleLanguage('en')" title="English">🇬🇧 EN</button>
-              <button type="button" class="lang-chip" data-lang="hi" onclick="setGoogleLanguage('hi')" title="Hindi (हिन्दी)">🇮🇳 HI</button>
               <button type="button" class="lang-chip" data-lang="gu" onclick="setGoogleLanguage('gu')" title="Gujarati (ગુજરાતી)">🇮🇳 GU</button>
+              <button type="button" class="lang-chip" data-lang="hi" onclick="setGoogleLanguage('hi')" title="Hindi (हिन्दी)">🇮🇳 HI</button>
               <button type="button" class="lang-chip" data-lang="es" onclick="setGoogleLanguage('es')" title="Spanish (Español)">🇪🇸 ES</button>
               <button type="button" class="lang-chip" data-lang="fr" onclick="setGoogleLanguage('fr')" title="French (Français)">🇫🇷 FR</button>
               <button type="button" class="lang-chip" data-lang="ar" onclick="setGoogleLanguage('ar')" title="Arabic (العربية)">🇸🇦 AR</button>
               <button type="button" class="lang-chip" data-lang="zh-CN" onclick="setGoogleLanguage('zh-CN')" title="Chinese (中文)">🇨🇳 ZH</button>
               <button type="button" class="lang-chip" data-lang="ru" onclick="setGoogleLanguage('ru')" title="Russian (Русский)">🇷🇺 RU</button>
             </div>
-
-            <!-- Native Google Translate Element for 100+ All Languages -->
-            <div id="google_translate_element"></div>
           </div>
 
           <!-- Quick Access Navigation Action Pills -->
@@ -1450,10 +1447,32 @@
 
   <!-- Automatic Google Translate Official Engine Script -->
   <script type="text/javascript">
+    // Immediately detect user's browser language and pre-seed cookie before Google engine executes
+    (function() {
+      try {
+        var preferred = localStorage.getItem('loc_preferred_lang');
+        var target = preferred;
+        if (!target || target === 'auto') {
+          var navLang = (navigator.language || (navigator.languages && navigator.languages[0]) || 'en').toLowerCase();
+          if (navLang.indexOf('zh-cn') === 0 || navLang === 'zh-sg') target = 'zh-CN';
+          else if (navLang.indexOf('zh-tw') === 0 || navLang === 'zh-hk') target = 'zh-TW';
+          else target = navLang.split('-')[0];
+        }
+        if (target && target !== 'en') {
+          var host = window.location.hostname;
+          var isLocal = host === 'localhost' || host === '127.0.0.1' || !host.includes('.');
+          var cookieVal = '/en/' + target;
+          document.cookie = 'googtrans=' + cookieVal + '; path=/;';
+          if (!isLocal) {
+            document.cookie = 'googtrans=' + cookieVal + '; path=/; domain=.' + host + ';';
+          }
+        }
+      } catch (e) {}
+    })();
+
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
         pageLanguage: 'en',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
         autoDisplay: false
       }, 'google_translate_element');
     }
