@@ -139,9 +139,7 @@
     if (window.marked) {
       window.marked.setOptions({
         gfm: true,
-        breaks: true,
-        headerIds: true,
-        mangle: false
+        breaks: true
       });
     }
 
@@ -326,6 +324,33 @@
     const nextRoute = ROUTE_REGISTRY[route.next];
 
     const paginationFooter = `
+      <div class="doc-footer-podcast">
+        <div class="podcast-footer-info">
+          <div class="doc-footer-podcast-text">LOC Cyber Mobile World Special Program // Official Podcast Series</div>
+          <div class="doc-footer-podcast-sub">Listen on Apple Podcasts, Spotify, or subscribe via Official RSS Feed</div>
+        </div>
+        <div class="podcast-footer-actions">
+          <a href="https://podcasts.apple.com/us/podcast/inside-billion-dollar-cyber-fraud-machine-digital-arrests-simboxes-international-scam-networks/id6810244376" target="_blank" rel="noopener noreferrer" class="apple-podcasts-btn" aria-label="Listen on Apple Podcasts">
+            <svg class="apple-podcast-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.64 7.86 6.36 9.31v-2.22C5.46 17.82 3.9 15.11 3.9 12c0-4.47 3.63-8.1 8.1-8.1s8.1 3.63 8.1 8.1c0 3.11-1.56 5.82-4.46 7.09v2.22C19.36 19.86 22 16.24 22 12c0-5.52-4.48-10-10-10zm0 4c-3.31 0-6 2.69-6 6 0 2.22 1.21 4.15 3 5.19v-2.24c-1.04-.8-1.7-2.07-1.7-3.5 0-2.48 2.02-4.5 4.5-4.5s4.5 2.02 4.5 4.5c0 1.43-.66 2.7-1.7 3.5v2.24c1.79-1.04 3-2.97 3-5.19 0-3.31-2.69-6-6-6zm0 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-1 5h2v7h-2v-7z"/>
+            </svg>
+            <span>Apple Podcasts</span>
+          </a>
+          <a href="https://open.spotify.com/show/5vPqZ9eLkZc0duBO1nFfDZ" target="_blank" rel="noopener noreferrer" class="spotify-btn" aria-label="Listen on Spotify">
+            <svg class="spotify-icon" viewBox="0 0 24 24">
+              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.502 17.307c-.218.358-.683.473-1.041.254-2.855-1.745-6.449-2.14-10.681-1.173-.409.094-.816-.162-.909-.571-.094-.409.162-.816.571-.909 4.639-1.059 8.608-.614 11.806 1.344.358.218.473.684.254 1.042zm1.469-3.264c-.274.446-.86.589-1.306.314-3.268-2.008-8.25-2.592-12.114-1.419-.501.152-1.034-.134-1.186-.635-.152-.501.134-1.034.635-1.186 4.417-1.34 9.911-.69 13.657 1.62.446.275.589.86.314 1.306zm.126-3.41c-3.918-2.327-10.375-2.541-14.11-1.407-.601.182-1.239-.163-1.421-.764-.182-.601.163-1.239.764-1.421 4.29-1.302 11.418-1.049 15.932 1.631.54.321.716 1.022.396 1.562-.321.54-1.022.716-1.561.396z"/>
+            </svg>
+            <span>Listen on Spotify</span>
+          </a>
+          <a href="https://anchor.fm/s/1170c4654/podcast/rss" target="_blank" rel="noopener noreferrer" class="rss-feed-btn" aria-label="Official Podcast RSS Feed">
+            <svg viewBox="0 0 24 24">
+              <circle cx="6.18" cy="17.82" r="2.18"/>
+              <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+            </svg>
+            <span>RSS Feed</span>
+          </a>
+        </div>
+      </div>
       <footer class="doc-footer-nav">
         <button type="button" class="cyber-btn secondary" onclick="window.navigateTo('${route.prev}')">
           ← ${prevRoute ? prevRoute.title : 'Previous'}
@@ -689,8 +714,12 @@
               parent.tagName === 'SCRIPT' || 
               parent.tagName === 'STYLE' || 
               parent.tagName === 'MARK' || 
-              parent.classList.contains('decrypt-btn') || 
-              parent.classList.contains('doc-footer-nav')
+              (parent.classList && (
+                parent.classList.contains('decrypt-btn') || 
+                parent.classList.contains('doc-footer-nav') ||
+                parent.classList.contains('doc-footer-podcast') ||
+                parent.classList.contains('spotify-actions-toolbar')
+              ))
             )) {
               return NodeFilter.FILTER_REJECT;
             }

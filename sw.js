@@ -5,14 +5,16 @@
  * ==============================================================================
  */
 
-const CACHE_NAME = 'loc-cyber-portal-v1.0';
+const CACHE_NAME = 'loc-cyber-portal-v1.1';
 
-// Core static assets and intelligence corpus to pre-cache
+// Core static assets, media artwork, feed, and intelligence corpus to pre-cache
 const STATIC_ASSETS = [
   './',
   './index.html',
   './styles.css',
   './app.js',
+  './podcast_cover.png',
+  './rss.xml',
   'https://cdn.jsdelivr.net/npm/marked/marked.min.js',
   './cyber-mobile-world-report-part1.md',
   './cyber-mobile-world-report-part2.md',
@@ -28,19 +30,22 @@ const STATIC_ASSETS = [
 
 /**
  * Service Worker Installation Phase
- * Pre-caches all essential static code and all 10 markdown dossier volumes.
+ * Resiliently pre-caches all essential static code, media, and all 10 markdown dossier volumes.
  */
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
         console.log('[SW] Pre-caching LOC Cyber Portal assets & intelligence files...');
-        return cache.addAll(STATIC_ASSETS);
+        return Promise.allSettled(
+          STATIC_ASSETS.map((url) =>
+            cache.add(url).catch((err) => {
+              console.warn('[SW] Non-fatal pre-cache skip:', url, err);
+            })
+          )
+        );
       })
       .then(() => self.skipWaiting())
-      .catch((err) => {
-        console.warn('[SW] Pre-caching warning (non-fatal):', err);
-      })
   );
 });
 
@@ -68,8 +73,8 @@ self.addEventListener('activate', (event) => {
  * Cache-First with Background Network Revalidation for instantaneous offline reading.
  */
 self.addEventListener('fetch', (event) => {
-  // Only handle GET requests
-  if (event.request.method !== 'GET') return;
+  // Only handle HTTP/HTTPS GET requests; ignore chrome-extension:// and non-GET
+  if (event.request.method !== 'GET' || !event.request.url.startsWith('http')) return;
 
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
@@ -79,8 +84,9 @@ self.addEventListener('fetch', (event) => {
         fetch(event.request)
           .then((networkResponse) => {
             if (networkResponse && networkResponse.status === 200) {
+              const resToCache = networkResponse.clone();
               caches.open(CACHE_NAME).then((cache) => {
-                cache.put(event.request, networkResponse);
+                cache.put(event.request, resToCache);
               });
             }
           })
@@ -94,7 +100,7 @@ self.addEventListener('fetch', (event) => {
       // 2. Not in cache: fetch from network and cache for subsequent offline access
       return fetch(event.request)
         .then((networkResponse) => {
-          if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
+          if (!networkResponse || networkResponse.status !== 200 || (networkResponse.type !== 'basic' && networkResponse.type !== 'cors')) {
             return networkResponse;
           }
 
@@ -109,7 +115,7 @@ self.addEventListener('fetch', (event) => {
           console.warn('[SW] Offline fetch fallback:', event.request.url);
           // Return generic error or cached index if HTML navigation
           if (event.request.headers.get('accept')?.includes('text/html')) {
-            return caches.match('./index.html');
+            return caches.match('./index.html').then((match) => match || caches.match('./'));
           }
           throw fetchError;
         });

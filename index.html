@@ -14,7 +14,39 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
   <!-- Content Security Policy (CSP) for Enterprise Security Audit -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; media-src 'self' https: data:; frame-src 'self' https://open.spotify.com https://*.spotify.com; connect-src 'self' https:; worker-src 'self' blob:; object-src 'none';">
+
+  <!-- Open Graph / Social Share Metadata -->
+  <meta property="og:title" content="LOC Cyber Mobile World Special Program | Apple Podcasts &amp; Spotify" />
+  <meta property="og:description" content="Inside the Billion-Dollar Cyber Fraud Machine: Digital Arrests, Simboxes &amp; International Scam Networks. Stream official show on Apple Podcasts and Spotify." />
+  <meta property="og:image" content="https://rajkot.github.io/LOC-Cyber-Mobile-World-Special-Program-15-09-2026/podcast_cover.png" />
+  <meta property="og:image:secure_url" content="https://rajkot.github.io/LOC-Cyber-Mobile-World-Special-Program-15-09-2026/podcast_cover.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="640" />
+  <meta property="og:image:height" content="640" />
+  <meta property="og:image:alt" content="LOC Cyber Mobile World Special Program Podcast Artwork" />
+  <meta property="og:url" content="https://open.spotify.com/show/5vPqZ9eLkZc0duBO1nFfDZ" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="LOC Cyber Command Portal" />
+  <meta property="og:see_also" content="https://podcasts.apple.com/us/podcast/inside-billion-dollar-cyber-fraud-machine-digital-arrests-simboxes-international-scam-networks/id6810244376" />
+  <meta property="og:see_also" content="https://open.spotify.com/show/5vPqZ9eLkZc0duBO1nFfDZ" />
+  <meta property="og:see_also" content="https://anchor.fm/s/1170c4654/podcast/rss" />
+
+  <!-- Apple Podcasts iOS Smart App Banner Integration -->
+  <meta name="apple-itunes-app" content="app-id=6810244376" />
+
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@spotify" />
+  <meta name="twitter:url" content="https://open.spotify.com/show/5vPqZ9eLkZc0duBO1nFfDZ" />
+  <meta name="twitter:title" content="LOC Cyber Mobile World Special Program | Apple Podcasts &amp; Spotify" />
+  <meta name="twitter:description" content="Inside the Billion-Dollar Cyber Fraud Machine: Digital Arrests, Simboxes &amp; International Scam Networks. Stream official show on Apple Podcasts and Spotify." />
+  <meta name="twitter:image" content="https://rajkot.github.io/LOC-Cyber-Mobile-World-Special-Program-15-09-2026/podcast_cover.png" />
+  <meta name="twitter:image:alt" content="LOC Cyber Mobile World Special Program Podcast Artwork" />
+
+  <!-- Official Live RSS Auto-Discovery Feed -->
+  <link rel="alternate" type="application/rss+xml" title="LOC Cyber Program Podcast Feed" href="https://anchor.fm/s/1170c4654/podcast/rss" />
+  <link rel="alternate" type="application/rss+xml" title="LOC Cyber Forensic Intelligence RSS Feed" href="./rss.xml" />
 
   <!-- Embedded Cyber SVG Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2308090c'/><circle cx='50' cy='50' r='30' fill='none' stroke='%2300f0ff' stroke-width='6'/><circle cx='50' cy='50' r='14' fill='%2300f0ff'/><path d='M50 10 L50 25 M50 75 L50 90 M10 50 L25 50 M75 50 L90 50' stroke='%23ff007f' stroke-width='4'/></svg>">
@@ -168,6 +200,36 @@
 
       </nav>
 
+      <!-- Sidebar Podcast Streaming Widget (Persistent Navigation) -->
+      <div class="sidebar-spotify-card" id="sidebar-spotify-card">
+        <div class="sidebar-spotify-header">
+          <span class="spotify-badge-pulse"></span>
+          <span>OFFICIAL PODCAST</span>
+        </div>
+        <div class="sidebar-spotify-title">LOC Special Series</div>
+        <div class="sidebar-podcast-btn-group">
+          <a href="https://podcasts.apple.com/us/podcast/inside-billion-dollar-cyber-fraud-machine-digital-arrests-simboxes-international-scam-networks/id6810244376" target="_blank" rel="noopener noreferrer" class="apple-podcasts-btn" aria-label="Listen on Apple Podcasts">
+            <svg class="apple-podcast-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.64 7.86 6.36 9.31v-2.22C5.46 17.82 3.9 15.11 3.9 12c0-4.47 3.63-8.1 8.1-8.1s8.1 3.63 8.1 8.1c0 3.11-1.56 5.82-4.46 7.09v2.22C19.36 19.86 22 16.24 22 12c0-5.52-4.48-10-10-10zm0 4c-3.31 0-6 2.69-6 6 0 2.22 1.21 4.15 3 5.19v-2.24c-1.04-.8-1.7-2.07-1.7-3.5 0-2.48 2.02-4.5 4.5-4.5s4.5 2.02 4.5 4.5c0 1.43-.66 2.7-1.7 3.5v2.24c1.79-1.04 3-2.97 3-5.19 0-3.31-2.69-6-6-6zm0 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-1 5h2v7h-2v-7z"/>
+            </svg>
+            <span>Apple Podcasts</span>
+          </a>
+          <a href="https://open.spotify.com/show/5vPqZ9eLkZc0duBO1nFfDZ" target="_blank" rel="noopener noreferrer" class="spotify-btn" aria-label="Listen on Spotify">
+            <svg class="spotify-icon" viewBox="0 0 24 24">
+              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.502 17.307c-.218.358-.683.473-1.041.254-2.855-1.745-6.449-2.14-10.681-1.173-.409.094-.816-.162-.909-.571-.094-.409.162-.816.571-.909 4.639-1.059 8.608-.614 11.806 1.344.358.218.473.684.254 1.042zm1.469-3.264c-.274.446-.86.589-1.306.314-3.268-2.008-8.25-2.592-12.114-1.419-.501.152-1.034-.134-1.186-.635-.152-.501.134-1.034.635-1.186 4.417-1.34 9.911-.69 13.657 1.62.446.275.589.86.314 1.306zm.126-3.41c-3.918-2.327-10.375-2.541-14.11-1.407-.601.182-1.239-.163-1.421-.764-.182-.601.163-1.239.764-1.421 4.29-1.302 11.418-1.049 15.932 1.631.54.321.716 1.022.396 1.562-.321.54-1.022.716-1.561.396z"/>
+            </svg>
+            <span>Listen on Spotify</span>
+          </a>
+          <a href="https://anchor.fm/s/1170c4654/podcast/rss" target="_blank" rel="noopener noreferrer" class="rss-feed-btn" aria-label="Official RSS Feed">
+            <svg viewBox="0 0 24 24">
+              <circle cx="6.18" cy="17.82" r="2.18"/>
+              <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+            </svg>
+            <span>Official RSS Feed</span>
+          </a>
+        </div>
+      </div>
+
       <!-- Pinned Cyber Helpline & Immediate Action -->
       <div class="sidebar-footer">
         <div class="helpline-card" id="helpline-card">
@@ -222,6 +284,31 @@
             <button type="button" id="doc-search-close" class="doc-search-close-btn" aria-label="Clear & Close search" title="Close search">✕</button>
           </div>
 
+          <!-- Global Podcast Streaming & RSS Platform Badges -->
+          <div class="nav-podcast-group" id="nav-podcast-group">
+            <a href="https://podcasts.apple.com/us/podcast/inside-billion-dollar-cyber-fraud-machine-digital-arrests-simboxes-international-scam-networks/id6810244376" target="_blank" rel="noopener noreferrer" class="apple-podcasts-btn nav-header-btn nav-apple-btn" id="header-apple-btn" aria-label="Listen on Apple Podcasts">
+              <svg class="apple-podcast-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.64 7.86 6.36 9.31v-2.22C5.46 17.82 3.9 15.11 3.9 12c0-4.47 3.63-8.1 8.1-8.1s8.1 3.63 8.1 8.1c0 3.11-1.56 5.82-4.46 7.09v2.22C19.36 19.86 22 16.24 22 12c0-5.52-4.48-10-10-10zm0 4c-3.31 0-6 2.69-6 6 0 2.22 1.21 4.15 3 5.19v-2.24c-1.04-.8-1.7-2.07-1.7-3.5 0-2.48 2.02-4.5 4.5-4.5s4.5 2.02 4.5 4.5c0 1.43-.66 2.7-1.7 3.5v2.24c1.79-1.04 3-2.97 3-5.19 0-3.31-2.69-6-6-6zm0 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-1 5h2v7h-2v-7z"/>
+              </svg>
+              <span>Apple Podcasts</span>
+            </a>
+
+            <a href="https://open.spotify.com/show/5vPqZ9eLkZc0duBO1nFfDZ" target="_blank" rel="noopener noreferrer" class="spotify-btn nav-header-btn nav-spotify-btn" id="header-spotify-btn" aria-label="Listen on Spotify">
+              <svg class="spotify-icon" viewBox="0 0 24 24">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.502 17.307c-.218.358-.683.473-1.041.254-2.855-1.745-6.449-2.14-10.681-1.173-.409.094-.816-.162-.909-.571-.094-.409.162-.816.571-.909 4.639-1.059 8.608-.614 11.806 1.344.358.218.473.684.254 1.042zm1.469-3.264c-.274.446-.86.589-1.306.314-3.268-2.008-8.25-2.592-12.114-1.419-.501.152-1.034-.134-1.186-.635-.152-.501.134-1.034.635-1.186 4.417-1.34 9.911-.69 13.657 1.62.446.275.589.86.314 1.306zm.126-3.41c-3.918-2.327-10.375-2.541-14.11-1.407-.601.182-1.239-.163-1.421-.764-.182-.601.163-1.239.764-1.421 4.29-1.302 11.418-1.049 15.932 1.631.54.321.716 1.022.396 1.562-.321.54-1.022.716-1.561.396z"/>
+              </svg>
+              <span>Spotify</span>
+            </a>
+
+            <a href="https://anchor.fm/s/1170c4654/podcast/rss" target="_blank" rel="noopener noreferrer" class="rss-feed-btn nav-header-btn nav-rss-btn" id="header-rss-btn" aria-label="Official Podcast RSS Feed">
+              <svg viewBox="0 0 24 24">
+                <circle cx="6.18" cy="17.82" r="2.18"/>
+                <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+              </svg>
+              <span>RSS</span>
+            </a>
+          </div>
+
           <div class="system-status-indicator">
             <span class="pulse-dot"></span>
             <span id="live-clock">2026-09-15 00:00:00 UTC</span>
@@ -266,6 +353,69 @@
               <div class="hero-meta-line">
                 <span class="pulse-dot"></span>
                 <span>KEY EXPERTS: Joint CP Rajnish Gupta & Investigator Amit Dubey | Delhi Police IFSO</span>
+              </div>
+            </section>
+
+            <!-- Official Responsive Spotify Embedded Audio Player & Intelligence Action Center -->
+            <section class="spotify-embed-card" id="spotify-player-section" aria-label="Official Spotify Podcast Episode Player">
+              <div class="spotify-card-header">
+                <div>
+                  <div class="spotify-badge">
+                    <span class="spotify-badge-pulse"></span>
+                    <span>OFFICIAL PODCAST BROADCAST // SPECIAL EPISODE</span>
+                  </div>
+                  <h2 class="spotify-card-title">Inside the Billion-Dollar Cyber Fraud Machine: Digital Arrests, Simboxes & International Scam Networks</h2>
+                  <p class="spotify-card-subtitle">Featuring Joint CP Rajneesh Gupta (Delhi Police IFSO) & Forensics Team | LOC Cyber Mobile World Special Program</p>
+                </div>
+                <div class="spotify-soundwaves" aria-hidden="true" title="Broadcasting Audio Stream">
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                </div>
+              </div>
+
+              <!-- Official Responsive Spotify Embed iFrame Widget -->
+              <div class="spotify-iframe-wrapper">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/0gX4B6IDX6kgr1Ya9FU2Po?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+              </div>
+
+              <!-- Action Toolbar & Quick Navigation -->
+              <div class="spotify-actions-toolbar">
+                <div class="spotify-toolbar-left">
+                  <a href="https://podcasts.apple.com/us/podcast/inside-billion-dollar-cyber-fraud-machine-digital-arrests-simboxes-international-scam-networks/id6810244376" target="_blank" rel="noopener noreferrer" class="apple-podcasts-btn" id="dashboard-apple-btn" aria-label="Listen on Apple Podcasts">
+                    <svg class="apple-podcast-icon" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.64 7.86 6.36 9.31v-2.22C5.46 17.82 3.9 15.11 3.9 12c0-4.47 3.63-8.1 8.1-8.1s8.1 3.63 8.1 8.1c0 3.11-1.56 5.82-4.46 7.09v2.22C19.36 19.86 22 16.24 22 12c0-5.52-4.48-10-10-10zm0 4c-3.31 0-6 2.69-6 6 0 2.22 1.21 4.15 3 5.19v-2.24c-1.04-.8-1.7-2.07-1.7-3.5 0-2.48 2.02-4.5 4.5-4.5s4.5 2.02 4.5 4.5c0 1.43-.66 2.7-1.7 3.5v2.24c1.79-1.04 3-2.97 3-5.19 0-3.31-2.69-6-6-6zm0 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-1 5h2v7h-2v-7z"/>
+                    </svg>
+                    <span>Apple Podcasts</span>
+                  </a>
+
+                  <a href="https://open.spotify.com/show/5vPqZ9eLkZc0duBO1nFfDZ" target="_blank" rel="noopener noreferrer" class="spotify-btn" id="dashboard-spotify-btn" aria-label="Listen to podcast show on Spotify">
+                    <svg class="spotify-icon" viewBox="0 0 24 24">
+                      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.502 17.307c-.218.358-.683.473-1.041.254-2.855-1.745-6.449-2.14-10.681-1.173-.409.094-.816-.162-.909-.571-.094-.409.162-.816.571-.909 4.639-1.059 8.608-.614 11.806 1.344.358.218.473.684.254 1.042zm1.469-3.264c-.274.446-.86.589-1.306.314-3.268-2.008-8.25-2.592-12.114-1.419-.501.152-1.034-.134-1.186-.635-.152-.501.134-1.034.635-1.186 4.417-1.34 9.911-.69 13.657 1.62.446.275.589.86.314 1.306zm.126-3.41c-3.918-2.327-10.375-2.541-14.11-1.407-.601.182-1.239-.163-1.421-.764-.182-.601.163-1.239.764-1.421 4.29-1.302 11.418-1.049 15.932 1.631.54.321.716 1.022.396 1.562-.321.54-1.022.716-1.561.396z"/>
+                    </svg>
+                    <span>Listen on Spotify</span>
+                  </a>
+
+                  <a href="https://anchor.fm/s/1170c4654/podcast/rss" target="_blank" rel="noopener noreferrer" class="rss-feed-btn" id="dashboard-rss-btn" aria-label="Subscribe to Official Podcast RSS Feed">
+                    <svg viewBox="0 0 24 24">
+                      <circle cx="6.18" cy="17.82" r="2.18"/>
+                      <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+                    </svg>
+                    <span>RSS Feed</span>
+                  </a>
+
+                  <a href="https://open.spotify.com/episode/0gX4B6IDX6kgr1Ya9FU2Po?si=UtbrX5_YTRKQ3jKk0MN7xA" target="_blank" rel="noopener noreferrer" class="spotify-episode-pill-btn" id="dashboard-spotify-episode-btn" aria-label="Direct Link to Featured Episode 3100 on Spotify">
+                    <span>Ep. 3100 Link ↗</span>
+                  </a>
+                </div>
+
+                <div class="spotify-meta-capsules">
+                  <span class="meta-capsule">⏱ Duration: ~3h 20m</span>
+                  <span class="meta-capsule">📡 1930 Helpline Golden Hour</span>
+                  <span class="meta-capsule">🛡 SIMBox & Mules</span>
+                </div>
               </div>
             </section>
 
@@ -590,6 +740,37 @@
               <p class="empty-desc">No report volumes match your search terms. Try searching for "Simbox", "Mule", "Ramayana", "1930", or "Crypto".</p>
               <button type="button" class="cyber-btn primary" onclick="resetDashboardSearch()">Reset Filter</button>
             </div>
+
+            <!-- Site Podcast Footer Banner with Dual Streaming Badges & RSS -->
+            <footer class="doc-footer-podcast" id="site-podcast-footer" style="margin-top: 2.5rem;">
+              <div class="podcast-footer-info">
+                <div class="doc-footer-podcast-text">LOC Cyber Mobile World Special Program // Official Podcast Series</div>
+                <div class="doc-footer-podcast-sub">Listen on Apple Podcasts, Spotify, or subscribe via Official RSS Feed</div>
+              </div>
+              <div class="podcast-footer-actions">
+                <a href="https://podcasts.apple.com/us/podcast/inside-billion-dollar-cyber-fraud-machine-digital-arrests-simboxes-international-scam-networks/id6810244376" target="_blank" rel="noopener noreferrer" class="apple-podcasts-btn" id="footer-apple-btn" aria-label="Listen on Apple Podcasts">
+                  <svg class="apple-podcast-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.64 7.86 6.36 9.31v-2.22C5.46 17.82 3.9 15.11 3.9 12c0-4.47 3.63-8.1 8.1-8.1s8.1 3.63 8.1 8.1c0 3.11-1.56 5.82-4.46 7.09v2.22C19.36 19.86 22 16.24 22 12c0-5.52-4.48-10-10-10zm0 4c-3.31 0-6 2.69-6 6 0 2.22 1.21 4.15 3 5.19v-2.24c-1.04-.8-1.7-2.07-1.7-3.5 0-2.48 2.02-4.5 4.5-4.5s4.5 2.02 4.5 4.5c0 1.43-.66 2.7-1.7 3.5v2.24c1.79-1.04 3-2.97 3-5.19 0-3.31-2.69-6-6-6zm0 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-1 5h2v7h-2v-7z"/>
+                  </svg>
+                  <span>Apple Podcasts</span>
+                </a>
+
+                <a href="https://open.spotify.com/show/5vPqZ9eLkZc0duBO1nFfDZ" target="_blank" rel="noopener noreferrer" class="spotify-btn" id="footer-spotify-btn" aria-label="Listen on Spotify">
+                  <svg class="spotify-icon" viewBox="0 0 24 24">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.502 17.307c-.218.358-.683.473-1.041.254-2.855-1.745-6.449-2.14-10.681-1.173-.409.094-.816-.162-.909-.571-.094-.409.162-.816.571-.909 4.639-1.059 8.608-.614 11.806 1.344.358.218.473.684.254 1.042zm1.469-3.264c-.274.446-.86.589-1.306.314-3.268-2.008-8.25-2.592-12.114-1.419-.501.152-1.034-.134-1.186-.635-.152-.501.134-1.034.635-1.186 4.417-1.34 9.911-.69 13.657 1.62.446.275.589.86.314 1.306zm.126-3.41c-3.918-2.327-10.375-2.541-14.11-1.407-.601.182-1.239-.163-1.421-.764-.182-.601.163-1.239.764-1.421 4.29-1.302 11.418-1.049 15.932 1.631.54.321.716 1.022.396 1.562-.321.54-1.022.716-1.561.396z"/>
+                  </svg>
+                  <span>Listen on Spotify</span>
+                </a>
+
+                <a href="https://anchor.fm/s/1170c4654/podcast/rss" target="_blank" rel="noopener noreferrer" class="rss-feed-btn" id="footer-rss-btn" aria-label="Subscribe to Official Podcast RSS Feed">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="6.18" cy="17.82" r="2.18"/>
+                    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+                  </svg>
+                  <span>RSS Feed</span>
+                </a>
+              </div>
+            </footer>
 
           </article>
 
