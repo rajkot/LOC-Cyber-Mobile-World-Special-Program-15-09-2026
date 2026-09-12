@@ -1335,25 +1335,70 @@
   }
 
   /**
-   * Helper: Set and synchronize googtrans cookies across domain scopes
+   * Helper: Set and synchronize googtrans cookies across domain and path scopes
    */
   function syncGoogtransCookie(langCode) {
     try {
       const hostname = window.location.hostname;
+      const pathname = window.location.pathname || '/';
       const isLocal = hostname === 'localhost' || hostname === '127.0.0.1' || !hostname.includes('.');
-      const domainStr = isLocal ? '' : `; domain=.${hostname}`;
 
-      if (langCode === 'en') {
-        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;${domainStr}`;
-        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-        document.cookie = `googtrans=/en/en; path=/;${domainStr}`;
-        document.cookie = `googtrans=/en/en; path=/;`;
-      } else {
-        const val = `/en/${langCode}`;
-        document.cookie = `googtrans=${val}; path=/;${domainStr}`;
-        document.cookie = `googtrans=${val}; path=/;`;
+      const paths = ['/', pathname];
+      if (pathname.length > 1) {
+        if (pathname.endsWith('/')) paths.push(pathname.slice(0, -1));
+        else paths.push(pathname + '/');
       }
+
+      paths.forEach(p => {
+        if (langCode === 'en' || !langCode) {
+          document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${p};`;
+          if (!isLocal) {
+            document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${p}; domain=.${hostname}`;
+          }
+        } else {
+          const val = `/en/${langCode}`;
+          document.cookie = `googtrans=${val}; path=${p};`;
+          if (!isLocal) {
+            document.cookie = `googtrans=${val}; path=${p}; domain=.${hostname}`;
+          }
+        }
+      });
     } catch(e) {}
+  }
+
+  /**
+   * Robust Programmatic Trigger for Native Google Translate Combo
+   * Matches language code, sets selectedIndex, calls onchange, and dispatches bubbling change event.
+   */
+  function applyLanguageToGoogleCombo(cleanCode) {
+    const combo = document.querySelector('.goog-te-combo');
+    if (!combo || !combo.options || combo.options.length === 0) return false;
+
+    // English is the base page language (not present in Google Translate combo)
+    if (cleanCode === 'en' || !cleanCode) {
+      return true;
+    }
+
+    const target = cleanCode.toLowerCase();
+    let foundIndex = -1;
+    for (let i = 0; i < combo.options.length; i++) {
+      const val = (combo.options[i].value || '').toLowerCase();
+      if (val === target || val === target.split('-')[0]) {
+        foundIndex = i;
+        break;
+      }
+    }
+
+    if (foundIndex >= 0) {
+      combo.selectedIndex = foundIndex;
+      combo.value = combo.options[foundIndex].value;
+      if (typeof combo.onchange === 'function') {
+        try { combo.onchange(); } catch(e) {}
+      }
+      combo.dispatchEvent(new Event('change', { bubbles: true, cancelable: true }));
+      return true;
+    }
+    return false;
   }
 
   /**
@@ -1495,7 +1540,7 @@
    * @param {string} langCode - The target language ISO code (e.g. 'gu', 'hi', 'es', 'fr', 'en')
    */
   window.selectLanguage = function(langCode) {
-    const cleanCode = langCode || 'en';
+    const cleanCode = (langCode || 'en').trim();
 
     // 1. Permanently remember user selection in localStorage
     try {
@@ -1511,17 +1556,33 @@
     // 4. Close dropdown menu
     window.closeLanguageMenu();
 
-    // 5. Fire Google Translate event on the native combo
-    const combo = document.querySelector('.goog-te-combo');
-    if (combo) {
-      combo.value = cleanCode;
-      combo.dispatchEvent(new Event('change'));
-    } else {
-      // If combo hasn't mounted yet, reload so the pre-seed cookie translates the page
-      setTimeout(() => {
+    // 5. English is native language: if page was translated, reload to restore pristine original DOM
+    if (cleanCode === 'en') {
+      const isTranslated = document.documentElement.className.includes('translated') ||
+                           document.cookie.includes('googtrans=');
+      if (isTranslated) {
         window.location.reload();
-      }, 100);
+      }
+      return;
     }
+
+    // 6. Fire Google Translate event on the native combo
+    if (applyLanguageToGoogleCombo(cleanCode)) {
+      return;
+    }
+
+    // 6. If combo not ready or options not populated yet, poll for up to 6 seconds
+    let attempts = 0;
+    const pollCombo = setInterval(() => {
+      attempts++;
+      if (applyLanguageToGoogleCombo(cleanCode)) {
+        clearInterval(pollCombo);
+      } else if (attempts >= 30) {
+        clearInterval(pollCombo);
+        // Fallback: If combo never loaded, reload with pre-seeded googtrans cookie
+        window.location.reload();
+      }
+    }, 200);
   };
 
   // Backward compatibility aliases
@@ -1573,17 +1634,17 @@
     const pollInterval = setInterval(() => {
       attempts++;
       const combo = document.querySelector('.goog-te-combo');
-      if (combo) {
+      if (combo && combo.options && combo.options.length > 0) {
         clearInterval(pollInterval);
         
         // Ensure combo matches saved language
-        if (savedLang && savedLang !== 'en' && combo.value !== savedLang) {
-          combo.value = savedLang;
-          combo.dispatchEvent(new Event('change'));
+        if (savedLang && savedLang !== 'en') {
+          applyLanguageToGoogleCombo(savedLang);
         }
 
         combo.addEventListener('change', function() {
-          const selected = this.value || 'en';
+          const selected = this.value;
+          if (!selected) return;
           try {
             localStorage.setItem('loc_preferred_lang', selected);
           } catch(e) {}

@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
   <!-- Content Security Policy (CSP) for Enterprise Security Audit -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://translate.google.com https://translate.googleapis.com https://*.google.com https://*.gstatic.com https://www.youtube.com https://s.ytimg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://translate.googleapis.com https://www.google.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: https://translate.google.com https://translate.googleapis.com https://www.google.com https://*.gstatic.com https://i.ytimg.com https://img.youtube.com; media-src 'self' https: data:; frame-src 'self' https://open.spotify.com https://*.spotify.com https://translate.google.com https://*.google.com https://www.youtube.com https://youtube.com https://www.youtube-nocookie.com https://*.youtube.com; connect-src 'self' https: https://translate.googleapis.com https://translate.google.com; worker-src 'self' blob:; object-src 'none';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://translate.google.com https://translate.googleapis.com https://*.google.com https://*.gstatic.com https://*.googleapis.com https://www.youtube.com https://s.ytimg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://translate.googleapis.com https://www.google.com https://*.gstatic.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: https://translate.google.com https://translate.googleapis.com https://www.google.com https://*.gstatic.com https://i.ytimg.com https://img.youtube.com; media-src 'self' https: data:; frame-src 'self' https://open.spotify.com https://*.spotify.com https://translate.google.com https://*.google.com https://*.googleapis.com https://www.youtube.com https://youtube.com https://www.youtube-nocookie.com https://*.youtube.com; connect-src 'self' https: https://translate.googleapis.com https://translate.google.com https://*.googleapis.com; worker-src 'self' blob:; object-src 'none';">
 
   <!-- Open Graph / Social Share Metadata -->
   <meta property="og:title" content="LOC Cyber Mobile World Special Program | Apple Podcasts &amp; Spotify" />
@@ -59,26 +59,37 @@
   <script type="text/javascript">
     (function() {
       try {
-        if ('caches' in window && localStorage.getItem('loc_portal_sw_gen') !== 'v1.5') {
+        if ('caches' in window && localStorage.getItem('loc_portal_sw_gen') !== 'v1.7') {
           caches.keys().then(function(keys) {
             return Promise.all(keys.map(function(k) { return caches.delete(k); }));
           }).then(function() {
-            localStorage.setItem('loc_portal_sw_gen', 'v1.5');
+            localStorage.setItem('loc_portal_sw_gen', 'v1.7');
           });
         }
         var saved = localStorage.getItem('loc_preferred_lang');
         var host = window.location.hostname;
+        var path = window.location.pathname || '/';
         var isLocal = host === 'localhost' || host === '127.0.0.1' || !host.includes('.');
-        var domainStr = isLocal ? '' : '; domain=.' + host;
-        if (saved && saved !== 'en') {
-          var cookieVal = '/en/' + saved;
-          document.cookie = 'googtrans=' + cookieVal + '; path=/;' + domainStr;
-          document.cookie = 'googtrans=' + cookieVal + '; path=/;';
-        } else if (saved === 'en') {
-          document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;' + domainStr;
-          document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-          document.cookie = 'googtrans=/en/en; path=/;' + domainStr;
-          document.cookie = 'googtrans=/en/en; path=/;';
+        var paths = ['/', path];
+        if (path.length > 1) {
+          if (path.endsWith('/')) paths.push(path.slice(0, -1));
+          else paths.push(path + '/');
+        }
+
+        for (var p = 0; p < paths.length; p++) {
+          var currPath = paths[p];
+          if (saved && saved !== 'en') {
+            var cookieVal = '/en/' + saved;
+            document.cookie = 'googtrans=' + cookieVal + '; path=' + currPath + ';';
+            if (!isLocal) {
+              document.cookie = 'googtrans=' + cookieVal + '; path=' + currPath + '; domain=.' + host;
+            }
+          } else if (saved === 'en') {
+            document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=' + currPath + ';';
+            if (!isLocal) {
+              document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=' + currPath + '; domain=.' + host;
+            }
+          }
         }
       } catch (e) {}
     })();
@@ -418,8 +429,6 @@
                 </div>
               </div>
 
-              <!-- Native Google Translate Element: required for Google engine & CI audit -->
-              <div id="google_translate_element" style="display: none;"></div>
             </div>
           </div>
 
@@ -1754,13 +1763,19 @@
     </div>
   </div>
 
+  <!-- Native Google Translate Element Host -->
+  <div id="google_translate_element"></div>
+
   <!-- Automatic Google Translate Official Engine Script -->
   <script type="text/javascript">
     function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        autoDisplay: false
-      }, 'google_translate_element');
+      try {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en'
+        }, 'google_translate_element');
+      } catch(e) {
+        console.warn('Google Translate Init Warning:', e);
+      }
     }
   </script>
   <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

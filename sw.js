@@ -5,7 +5,7 @@
  * ==============================================================================
  */
 
-const CACHE_NAME = 'loc-cyber-portal-v1.6';
+const CACHE_NAME = 'loc-cyber-portal-v1.7';
 
 // Core static assets, media artwork, feed, and intelligence corpus to pre-cache
 const STATIC_ASSETS = [

@@ -3573,8 +3573,12 @@ mark.cyber-highlight.current {
 
 .goog-te-banner-frame.skiptranslate,
 .goog-te-banner-frame {
-  display: none !important;
   visibility: hidden !important;
+  opacity: 0 !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+  width: 0 !important;
   height: 0 !important;
   border: none !important;
 }
