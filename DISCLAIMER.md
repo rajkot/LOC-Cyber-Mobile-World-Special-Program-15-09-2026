@@ -82,7 +82,7 @@ To eliminate any potential confusion or ambiguity, this legal declaration explic
    Every payment rail, merchant QR code, and external link in this project is **authentic, active, and directly operated by Jignesh Kariya**. Anyone globally can pay and join the program seamlessly:
    - **Tier 1: Binance Pay 1.00 BNB VIP Sovereign Gateway**: Real merchant payment order (Payee: `BuyMyTime`, Order ID: `453747440013639680`, QR Assets: `binance_1bnb_qr.png` and `binance_1bnb_qr_square.png`). Instant automated activation upon settlement.
    - **Tier 2: Binance Pay 1.00 USDT Universal Citizen Gateway**: Real multi-currency payment QR Code (`binance_qr.png`) accepted across 196 countries.
-   - **Tier 3: UPI Instant Payment Rail**: Registered directly to Jignesh Jayantilal Kariya with VPA `oo71097145198@okaxis` (QR Asset: `upi_qr.png`), allowing instant domestic participation in India (₹89 / $1).
+   - **Tier 3: UPI Instant Payment Rail**: Registered directly to Jignesh Jayantilal Kariya with VPA `oo71097145198@okaxis` (QR Asset: `upi_qr.png`), allowing instant domestic participation in India (1 USD / $1).
    - **Binance Official Referral Program**: Live referral code `GRO_28502_BCPDJ` providing up to 400 USDT in trading fee rebates.
    - **Seamless Program Onboarding**: All transactions credit directly to the official custody of Jignesh Kariya. Users can complete payment, verify their transaction hash or UPI reference, and join the special program seamlessly with direct personal onboarding support via WhatsApp (+91 98980 48483).
 

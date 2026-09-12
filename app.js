@@ -481,7 +481,7 @@
               <span class="pro-qr-tag upi-tag">UPI INSTANT</span>
               <span class="pro-qr-network">ALL UPI APPS</span>
             </div>
-            <div class="pro-qr-img-box" onclick="window.openQrModal('./upi_qr.png', '🇮🇳 UPI Instant Transfer (₹89 / $1)', 'Jignesh Jayantilal Kariya | oo71097145198@okaxis')" title="Click to Enlarge & Scan">
+            <div class="pro-qr-img-box" onclick="window.openQrModal('./upi_qr.png', '🇮🇳 UPI Instant Transfer (1 USD)', 'Jignesh Jayantilal Kariya | oo71097145198@okaxis')" title="Click to Enlarge & Scan">
               <img src="./upi_qr.png" alt="UPI QR Code - Jignesh Jayantilal Kariya" class="pro-qr-image" loading="lazy">
               <div class="qr-tap-hint">🔍 Tap to Enlarge &amp; Scan</div>
             </div>

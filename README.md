@@ -32,7 +32,7 @@ Welcome to the central intelligence compendium and operational access directory 
   [ TIER 1: 👑 VIP SOVEREIGN PASS ]   --> 1.00 BNB Coin  --> Binance Pay Request URL (Payee: BuyMyTime)
   [ TIER 2: 🟡 GLOBAL CITIZEN PASS ]  --> 1.00 USDT      --> Binance Pay Gateway QR Code (Universal 196 Countries)
   [ BONUS:  🎁 400 USDT FEE REBATE ] --> Free Rebate    --> Binance Referral: GRO_28502_BCPDJ (Earn Together)
-  [ TIER 3: 🔵 ALTERNATIVE RAIL ]    --> 1 USD / ₹89    --> UPI Instant Transfer (oo71097145198@okaxis) / WhatsApp
+  [ TIER 3: 🔵 ALTERNATIVE RAIL ]    --> 1.00 USD       --> UPI Instant Transfer (oo71097145198@okaxis) / WhatsApp
   [ VIDEO:  📺 YOUTUBE PART 1 ]      --> Free Public    --> Ep. 3100 (pUUfSa2N3u0) | Official Channel: @jigsi_karia
   [ AUDIO:  🎙️ PODCAST BROADCASTS ]  --> Free Global    --> Apple Podcasts / Spotify Show / Official Anchor RSS Feed
   [ SYSTEM: 🌐 LIVE WEB PORTAL ]     --> GitHub Pages   --> Zero-Dependency SPA + Offline PWA Cache (sw.js v1.3)
@@ -225,33 +225,33 @@ The LOC Cyber Mobile World Special Program is anchored by the landmark investiga
 
 ---
 
-## 5. 🔵 Alternative Non-Binance Global Payment Rails (1 USD / ₹89)
+## 5. 🔵 Alternative Non-Binance Global Payment Rails (1 USD)
 
-Recognizing that many victims, students, and citizens do not utilize cryptocurrency or reside in jurisdictions with restricted access to Binance, the LOC Cyber Command Program supports universal alternative payment rails. Contributions of **1 USD ($1 / ₹89)** grant complete qualification for Part 2 member access.
+Recognizing that many victims, students, and citizens do not utilize cryptocurrency or reside in jurisdictions with restricted access to Binance, the LOC Cyber Command Program supports universal alternative payment rails. Contributions of **1 USD ($1)** grant complete qualification for Part 2 member access.
 
 ### 💳 Alternative Rails Directory
 | Payment Rail | Direct Access Identifier / URL | Operational Instructions |
 | :--- | :--- | :--- |
-| **UPI Instant Transfer (India)** | `oo71097145198@okaxis` | Scan QR or send ₹89 INR via GPay, PhonePe, Paytm, BHIM, or any UPI app |
+| **UPI Instant Transfer (India)** | `oo71097145198@okaxis` | Scan QR or send 1 USD via GPay, PhonePe, Paytm, BHIM, or any UPI app |
 | **WhatsApp 1 USD Appointment** | [+91 98980 48483](https://wa.me/919898048483?text=Hello%20Jignesh%20Bhai%2C%20I%20want%20to%20book%20a%201%20USD%20Appointment%20for%20Part%202%20LOC%20Program) | Direct 1-on-1 appointment booking via Jignesh Karia's official WhatsApp |
 | **Google Forms Official Portal** | [Submit via Google Form](https://docs.google.com/forms/d/e/1FAIpQLScJ7WjuxEXqdoSlUtxN7NQ8UeKpbEAeA9iIO-IXOmBmYzlLHQ/viewform?usp=sharing&ouid=116676179363878319046) | Submit transaction UTR, operative name, and request verified credentials |
 | **WhatsApp Digital Store** | [https://wa.me/c/919898048483](https://wa.me/c/919898048483) | Browse official cyber forensic toolkits, whitepapers, and store offerings |
 
-### 📷 High-Resolution UPI Instant Transfer QR Code (₹89 / 1 USD)
+### 📷 High-Resolution UPI Instant Transfer QR Code (1 USD)
 ![UPI Instant Transfer QR Code](./upi_qr.png)
 
 ### 🛠️ UPI Instant Transfer Specifications
 - **UPI Virtual Payment Address (VPA)**: `oo71097145198@okaxis`
 - **Account Payee Name**: Jignesh Jayantilal Kariya
-- **Required Transfer Amount**: **₹89 INR** (One United States Dollar Equivalent)
+- **Required Transfer Amount**: **1 USD** (One United States Dollar Equivalent)
 - **Supported Payment Applications**: Google Pay, PhonePe, Paytm, BHIM UPI, Amazon Pay, Cred, Navi, WhatsApp Pay, and all scheduled Indian commercial banks.
-- **Verification Protocol**: After completing the ₹89 transfer, note the 12-digit UPI UTR / RRN number and submit it on the portal's invitation form to generate your sovereign Receive Code.
+- **Verification Protocol**: After completing the 1 USD transfer, note the 12-digit UPI UTR / RRN number and submit it on the portal's invitation form to generate your sovereign Receive Code.
 
 ### 📲 Step-by-Step 1 USD WhatsApp Appointment Sequence
 Operatives booking a direct 1 USD consultation via WhatsApp should follow this standard protocol:
 1. Open the direct WhatsApp link: [https://wa.me/919898048483](https://wa.me/919898048483?text=Hello%20Jignesh%20Bhai%2C%20I%20want%20to%20book%20a%201%20USD%20Appointment%20for%20Part%202%20LOC%20Program).
 2. State your name, jurisdiction, and brief summary of the cyber threat or research inquiry.
-3. Attach transaction screenshot or UTR number demonstrating your 1 USD / ₹89 transfer.
+3. Attach transaction screenshot or UTR number demonstrating your 1 USD transfer.
 4. Jignesh Karia's coordination cell verifies the transaction within 4 hours.
 5. A secure private meeting link (Google Meet / encrypted call) is dispatched to confirm your calendar schedule.
 
@@ -431,7 +431,7 @@ Upon completing payment via any of the supported rails, the portal's client-side
 3. Select your membership tier from the dropdown:
    - `👑 VIP Sovereign Member (1.00 BNB Coin // Order: 453747440013639680)`
    - `🟡 Global Citizen Member (1.00 USDT // BuyMyTime)`
-   - `🔵 Alternative Rail Member ($1 / ₹89 Appointment)`
+   - `🔵 Alternative Rail Member ($1 / 1 USD Appointment)`
 4. Paste your transaction reference (Binance TxID, Order ID, or UPI UTR).
 5. Enter your operative name, country, and contact handle.
 6. Click **⚡ VERIFY & GENERATE OFFICIAL RECEIVE CODE**.
@@ -451,7 +451,7 @@ Upon completing payment via any of the supported rails, the portal's client-side
 | **👑 VIP Sovereign Pass** | **1.00 BNB** | BNB Coin (Binance Pay) | [Pay 1 BNB via Binance Request ↗](https://app.binance.com/uni-qr/request-to-pay?billOrderId=453747440013639680&billType=request_a_payment) | Order ID: `453747440013639680` |
 | **🟡 Global Citizen Pass** | **1.00 USDT** | USDT / BUSD / Crypto | [Join 1 USDT via Binance QR ↗](https://rajkot.github.io/LOC-Cyber-Mobile-World-Special-Program-15-09-2026/) | Payee: `BuyMyTime` |
 | **🎁 400 USDT Referral Bonus** | **Free (0 USD)** | USDT / USDC Vouchers | [Claim 400 USDT Rebate on Binance ↗](https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&ref=GRO_28502_BCPDJ&utm_medium=app_share_link_whatsapp&utm_source=referral_entrance) | Referral Code: `GRO_28502_BCPDJ` |
-| **🔵 UPI Instant Transfer** | **₹89 INR ($1)** | INR via All UPI Apps | VPA: `oo71097145198@okaxis` | Jignesh Jayantilal Kariya |
+| **🔵 UPI Instant Transfer** | **1 USD ($1)** | Multi-App UPI (1 USD Equivalent) | VPA: `oo71097145198@okaxis` | Jignesh Jayantilal Kariya |
 | **💬 WhatsApp Appointment** | **1.00 USD** | International Fiat | [Book WhatsApp $1 Appointment ↗](https://wa.me/919898048483?text=Hello%20Jignesh%20Bhai%2C%20I%20want%20to%20book%20a%201%20USD%20Appointment%20for%20Part%202%20LOC%20Program) | Hotline: `+91 98980 48483` |
 | **🪙 Google Forms Portal** | **1.00 USD** | Multi-Rail Contribution | [Submit Contribution via Google Form ↗](https://docs.google.com/forms/d/e/1FAIpQLScJ7WjuxEXqdoSlUtxN7NQ8UeKpbEAeA9iIO-IXOmBmYzlLHQ/viewform?usp=sharing&ouid=116676179363878319046) | Form ID: `1FAIpQLScJ7WjuxEX...` |
 | **📺 YouTube Episode 3100** | **Free Public** | Open Stream | [Watch Episode 3100 on YouTube ↗](https://youtu.be/pUUfSa2N3u0) | Official Channel: `@jigsi_karia` |
@@ -471,7 +471,7 @@ Upon completing payment via any of the supported rails, the portal's client-side
 **A2**: You should first register using our official [Binance Earn Together Referral Link](https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&ref=GRO_28502_BCPDJ&utm_medium=app_share_link_whatsapp&utm_source=referral_entrance) with referral code **`GRO_28502_BCPDJ`**. This unlocks up to **400 USDT / USDC in free trading fee rebate vouchers** for both of us. Once registered and verified, you can deposit fiat or purchase USDT/BNB with zero net fee friction.
 
 #### Q3: Can I join if cryptocurrency is banned or restricted in my jurisdiction?
-**A3**: Absolutely. You can utilize our **Alternative Payment Rails** by paying **1 USD ($1 / ₹89 INR)** via UPI (`oo71097145198@okaxis`) or contacting Jignesh Karia directly on WhatsApp at [+91 98980 48483](https://wa.me/919898048483) to arrange an alternative fiat transfer method.
+**A3**: Absolutely. You can utilize our **Alternative Payment Rails** by paying **1 USD ($1)** via UPI (`oo71097145198@okaxis`) or contacting Jignesh Karia directly on WhatsApp at [+91 98980 48483](https://wa.me/919898048483) to arrange an alternative fiat transfer method.
 
 #### Q4: How do I verify my payment and obtain my Receive Code?
 **A4**: Once your transfer is complete, open the live portal at [https://rajkot.github.io/LOC-Cyber-Mobile-World-Special-Program-15-09-2026/](https://rajkot.github.io/LOC-Cyber-Mobile-World-Special-Program-15-09-2026/), click **🪙 1 USDT JOIN** or **👑 VIP 1 BNB**, input your transaction Order ID / UTR, and click **⚡ VERIFY & GENERATE OFFICIAL RECEIVE CODE**.
