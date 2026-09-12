@@ -54,6 +54,35 @@
   <link rel="stylesheet" href="./styles.css">
   <!-- Marked.js Client-Side Markdown Engine -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <!-- Stale Cache Purger & Early Language Memory Synchronizer -->
+  <script type="text/javascript">
+    (function() {
+      try {
+        if ('caches' in window && localStorage.getItem('loc_portal_sw_gen') !== 'v1.5') {
+          caches.keys().then(function(keys) {
+            return Promise.all(keys.map(function(k) { return caches.delete(k); }));
+          }).then(function() {
+            localStorage.setItem('loc_portal_sw_gen', 'v1.5');
+          });
+        }
+        var saved = localStorage.getItem('loc_preferred_lang');
+        var host = window.location.hostname;
+        var isLocal = host === 'localhost' || host === '127.0.0.1' || !host.includes('.');
+        var domainStr = isLocal ? '' : '; domain=.' + host;
+        if (saved && saved !== 'en') {
+          var cookieVal = '/en/' + saved;
+          document.cookie = 'googtrans=' + cookieVal + '; path=/;' + domainStr;
+          document.cookie = 'googtrans=' + cookieVal + '; path=/;';
+        } else if (saved === 'en') {
+          document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;' + domainStr;
+          document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+          document.cookie = 'googtrans=/en/en; path=/;' + domainStr;
+          document.cookie = 'googtrans=/en/en; path=/;';
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
   <!-- Active Reading Progress Bar (Fixed Top) -->
@@ -121,6 +150,15 @@
           <div class="nav-item-text">
             <span class="nav-item-title" style="color: #ffd700;">VIP &amp; GLOBAL INVITATION</span>
             <span class="nav-item-desc">1 BNB VIP / 1 USDT Pass</span>
+          </div>
+        </button>
+
+        <!-- Statutory Legal & Fictional Identity Disclaimer -->
+        <button type="button" class="nav-item" id="nav-page-disclaimer" data-page="page-disclaimer" aria-label="Statutory Legal &amp; Fictional Identity Disclaimer">
+          <span class="nav-item-num" style="color: #ffaa00;">⚖️</span>
+          <div class="nav-item-text">
+            <span class="nav-item-title" style="color: #ffaa00;">LEGAL DISCLAIMER</span>
+            <span class="nav-item-desc">All Names Imaginary // Safe Harbor</span>
           </div>
         </button>
 
@@ -309,27 +347,79 @@
             <button type="button" id="doc-search-close" class="doc-search-close-btn" aria-label="Clear & Close search" title="Close search">✕</button>
           </div>
 
-          <!-- Automatic Google Translate System: Single-Button Facility for All 100+ Languages & Auto-Detection -->
-          <div class="cyber-translate-container" id="cyber-translate-container" title="Automatic Google Translate Facility (100+ Languages)">
-            <div class="single-translate-btn-wrap" id="single-translate-btn-wrap">
-              <button type="button" class="translate-badge-pill" id="translate-badge-pill" onclick="window.toggleDetectedLanguage()" title="Click to Toggle Between Auto-Detected Language & English">
-                <span class="pulse-dot" style="background-color: #00f0ff; width: 6px; height: 6px; box-shadow: 0 0 8px #00f0ff;"></span>
-                <span id="translate-active-label">🌐 AUTO: EN</span>
+          <!-- ====================================================================
+               UNIFIED SINGLE-BUTTON ALL-LANGUAGE TRANSLATE CONTROLLER (133+ LANGUAGES)
+               Permanent Memory Retention // Instant Live Search // Cyber Dropdown
+               ==================================================================== -->
+          <div class="cyber-translate-container" id="cyber-translate-container">
+            <div class="all-lang-translate-wrap" id="all-lang-translate-wrap">
+              <!-- Single Main Unified Button -->
+              <button type="button" class="all-lang-btn notranslate" id="all-lang-btn" onclick="window.toggleLanguageMenu(event)" aria-haspopup="listbox" aria-expanded="false" title="Translate into any of 133+ languages. Selection is remembered permanently.">
+                <span class="pulse-dot" style="background-color: var(--neon-cyan); width: 6px; height: 6px; box-shadow: 0 0 8px var(--neon-cyan);"></span>
+                <span class="all-lang-globe">🌐</span>
+                <span class="all-lang-current" id="all-lang-current-label">English</span>
+                <span class="all-lang-arrow" id="all-lang-arrow">▼</span>
               </button>
-              <!-- Native Google Translate Element: Single Dropdown for All 100+ Worldwide Languages -->
-              <div id="google_translate_element"></div>
-            </div>
+              
+              <!-- All-Language Interactive Cyber Dropdown Menu -->
+              <div class="all-lang-dropdown notranslate" id="all-lang-dropdown" style="display: none;" onclick="event.stopPropagation()">
+                <div class="all-lang-dropdown-header">
+                  <div class="all-lang-header-top">
+                    <div class="all-lang-header-title">
+                      <span class="all-lang-title-icon">🌐</span>
+                      <span>ALL WORLD LANGUAGES (133+)</span>
+                    </div>
+                    <span class="all-lang-memory-tag" title="Your chosen language is remembered permanently across visits">
+                      <span class="memory-dot"></span> REMEMBERED
+                    </span>
+                  </div>
+                  
+                  <div class="all-lang-search-wrap">
+                    <span class="all-lang-search-icon">🔍</span>
+                    <input type="text" id="all-lang-search-input" class="all-lang-search-input" placeholder="Search 133+ languages (e.g. Gujarati, Hindi, Spanish)..." oninput="window.filterLanguages(this.value)" autocomplete="off">
+                    <button type="button" class="all-lang-search-clear" id="all-lang-search-clear" onclick="window.clearLanguageSearch()" style="display: none;" title="Clear search">✕</button>
+                  </div>
+                </div>
 
-            <!-- Compact Language Selector Group (Preserves architectural selectors and quick access) -->
-            <div class="quick-lang-group" id="quick-lang-group" style="display: none;">
-              <button type="button" class="lang-chip active" data-lang="en" onclick="setGoogleLanguage('en')" title="English">🇬🇧 EN</button>
-              <button type="button" class="lang-chip" data-lang="gu" onclick="setGoogleLanguage('gu')" title="Gujarati (ગુજરાતી)">🇮🇳 GU</button>
-              <button type="button" class="lang-chip" data-lang="hi" onclick="setGoogleLanguage('hi')" title="Hindi (हिन्दी)">🇮🇳 HI</button>
-              <button type="button" class="lang-chip" data-lang="es" onclick="setGoogleLanguage('es')" title="Spanish (Español)">🇪🇸 ES</button>
-              <button type="button" class="lang-chip" data-lang="fr" onclick="setGoogleLanguage('fr')" title="French (Français)">🇫🇷 FR</button>
-              <button type="button" class="lang-chip" data-lang="ar" onclick="setGoogleLanguage('ar')" title="Arabic (العربية)">🇸🇦 AR</button>
-              <button type="button" class="lang-chip" data-lang="zh-CN" onclick="setGoogleLanguage('zh-CN')" title="Chinese (中文)">🇨🇳 ZH</button>
-              <button type="button" class="lang-chip" data-lang="ru" onclick="setGoogleLanguage('ru')" title="Russian (Русский)">🇷🇺 RU</button>
+                <!-- Quick Access: Popular & Regional Languages -->
+                <div class="all-lang-quick-section" id="all-lang-quick-section">
+                  <div class="all-lang-quick-label">POPULAR &amp; REGIONAL LANGUAGES:</div>
+                  <div class="all-lang-quick-chips">
+                    <button type="button" class="all-lang-chip" data-code="en" onclick="window.selectLanguage('en')">🇬🇧 English</button>
+                    <button type="button" class="all-lang-chip" data-code="gu" onclick="window.selectLanguage('gu')">🇮🇳 ગુજરાતી</button>
+                    <button type="button" class="all-lang-chip" data-code="hi" onclick="window.selectLanguage('hi')">🇮🇳 हिन्दी</button>
+                    <button type="button" class="all-lang-chip" data-code="es" onclick="window.selectLanguage('es')">🇪🇸 Español</button>
+                    <button type="button" class="all-lang-chip" data-code="ar" onclick="window.selectLanguage('ar')">🇸🇦 العربية</button>
+                    <button type="button" class="all-lang-chip" data-code="zh-CN" onclick="window.selectLanguage('zh-CN')">🇨🇳 中文</button>
+                    <button type="button" class="all-lang-chip" data-code="ru" onclick="window.selectLanguage('ru')">🇷🇺 Русский</button>
+                    <button type="button" class="all-lang-chip" data-code="fr" onclick="window.selectLanguage('fr')">🇫🇷 Français</button>
+                    <button type="button" class="all-lang-chip" data-code="de" onclick="window.selectLanguage('de')">🇩🇪 Deutsch</button>
+                    <button type="button" class="all-lang-chip" data-code="ja" onclick="window.selectLanguage('ja')">🇯🇵 日本語</button>
+                    <button type="button" class="all-lang-chip" data-code="pt" onclick="window.selectLanguage('pt')">🇵🇹 Português</button>
+                    <button type="button" class="all-lang-chip" data-code="mr" onclick="window.selectLanguage('mr')">🇮🇳 मराठी</button>
+                    <button type="button" class="all-lang-chip" data-code="bn" onclick="window.selectLanguage('bn')">🇮🇳 বাংলা</button>
+                    <button type="button" class="all-lang-chip" data-code="ta" onclick="window.selectLanguage('ta')">🇮🇳 தமிழ்</button>
+                    <button type="button" class="all-lang-chip" data-code="te" onclick="window.selectLanguage('te')">🇮🇳 తెలుగు</button>
+                    <button type="button" class="all-lang-chip" data-code="ur" onclick="window.selectLanguage('ur')">🇵🇰 اردو</button>
+                  </div>
+                </div>
+
+                <!-- Scrollable List of All 133+ Languages -->
+                <div class="all-lang-scroll-list" id="all-lang-scroll-list" role="listbox">
+                  <!-- Populated dynamically by app.js -->
+                </div>
+
+                <!-- Dropdown Footer -->
+                <div class="all-lang-dropdown-footer">
+                  <button type="button" class="all-lang-reset-btn" onclick="window.selectLanguage('en')">
+                    <span>↺ Reset to Original English</span>
+                  </button>
+                  <span class="all-lang-counter" id="all-lang-counter">133 Languages Available</span>
+                </div>
+              </div>
+
+              <!-- Native Google Translate Element: required for Google engine & CI audit -->
+              <div id="google_translate_element" style="display: none;"></div>
             </div>
           </div>
 
@@ -345,6 +435,9 @@
           </button>
           <button type="button" class="header-action-pill header-bonus-pill" onclick="window.navigateTo('page-invitation')" title="New to Binance? Claim Up to 400 USDT / USDC Free Fee Rebates with Referral Code GRO_28502_BCPDJ">
             <span>🎁 400 USDT BONUS</span>
+          </button>
+          <button type="button" class="header-action-pill header-disclaimer-pill" onclick="window.openDisclaimerModal()" title="Statutory Legal &amp; Fictional Identity Disclaimer (All Names Imaginary)">
+            <span>⚖️ DISCLAIMER</span>
           </button>
 
           <!-- Global Podcast Streaming & RSS Platform Badges -->
@@ -423,6 +516,95 @@
               <div class="hero-meta-line">
                 <span class="pulse-dot"></span>
                 <span>KEY EXPERTS: Joint CP Rajnish Gupta & Investigator Amit Dubey | Delhi Police IFSO</span>
+              </div>
+            </section>
+
+            <!-- ====================================================================
+                 STATUTORY LEGAL & FICTIONAL IDENTITY DISCLAIMER SHOWCASE CARD
+                 ==================================================================== -->
+            <section class="disclaimer-hero-card" id="disclaimer-hero-card" aria-label="Statutory Legal &amp; Fictional Identity Disclaimer">
+              <div class="disclaimer-badge">
+                <span class="pulse-dot-amber"></span>
+                <span>STATUTORY LEGAL DECLARATION // ALL NAMES STRICTLY IMAGINARY</span>
+              </div>
+              <h2 class="disclaimer-card-title">
+                <span>Universal Fictional Identity &amp; Pure Coincidence Disclosure</span>
+              </h2>
+              <p class="disclaimer-card-subtitle">
+                <strong>OFFICIAL FORENSIC NOTICE:</strong> All names of persons, characters, accused profiles, caller vignettes, mule account holders, syndicate actors, commercial brands, phone numbers, crypto addresses, and case scenarios throughout this project, intelligence dossiers, and broadcasts are <strong>STRICTLY IMAGINARY AND FICTITIOUS SIMULATIONS</strong> created solely for educational cybersecurity analysis and crime prevention. Any resemblance or phonetic match to any actual person (living or deceased) or entity is <strong>100% PURELY COINCIDENTAL AND UNINTENDED</strong>.
+              </p>
+
+              <!-- 4 Core Pillars Grid -->
+              <div class="disclaimer-pillars-grid">
+                <div class="disclaimer-pillar-box">
+                  <div class="pillar-header">
+                    <span class="pillar-icon">🎭</span>
+                    <span class="pillar-title">100% Imaginary Nomenclature</span>
+                  </div>
+                  <p class="pillar-desc">
+                    Every individual name, caller handle, and victim profile is a <strong>purely fictitious construct</strong> or simulated placeholder. No scenario depicts or targets any real-world person.
+                  </p>
+                </div>
+
+                <div class="disclaimer-pillar-box">
+                  <div class="pillar-header">
+                    <span class="pillar-icon">⚡</span>
+                    <span class="pillar-title">Pure Coincidence Principle</span>
+                  </div>
+                  <p class="pillar-desc">
+                    Any identical match, orthographic similarity, or homophone to real-world individuals or registered entities is <strong>purely accidental, unintentional, and devoid of specific reference</strong>.
+                  </p>
+                </div>
+
+                <div class="disclaimer-pillar-box">
+                  <div class="pillar-header">
+                    <span class="pillar-icon">🚫</span>
+                    <span class="pillar-title">Absolute Bar on Claims</span>
+                  </div>
+                  <p class="pillar-desc">
+                    Zero misconduct or illegality is imputed to any real person sharing similar names. <strong>No cause of action for defamation, libel, slander, or identity misuse shall lie.</strong>
+                  </p>
+                </div>
+
+                <div class="disclaimer-pillar-box">
+                  <div class="pillar-header">
+                    <span class="pillar-icon">🛡️</span>
+                    <span class="pillar-title">Statutory Safe Harbor</span>
+                  </div>
+                  <p class="pillar-desc">
+                    Protected under <strong>Section 79 of the Information Technology Act</strong>, academic research exemptions, and public interest mandates to educate citizens against cybercrime syndicates.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Authentic Identification, Real Payment QR Rails & Google Verification Box -->
+              <div class="disclaimer-exception-box" style="border-color: rgba(255, 215, 0, 0.45); background: linear-gradient(135deg, rgba(255, 215, 0, 0.06), rgba(0, 240, 255, 0.05));">
+                <div class="disclaimer-exception-icon">👑</div>
+                <div class="disclaimer-exception-text">
+                  <div style="font-size: 0.95rem; font-weight: 800; color: #ffd700; margin-bottom: 0.35rem;">
+                    100% REAL &amp; VERIFIED: JIGNESH KARIYA / JIGSI KARIA, ALL QR CODES &amp; ALL PROJECT LINKS
+                  </div>
+                  <p style="margin-bottom: 0.4rem; color: #f1f5f9;">
+                    The author and lead forensic investigator <strong>Jignesh Kariya</strong> / <strong>Jigsi Karia</strong> (Legal: <strong>Jignesh Jayantilal Kariya</strong>, <strong>@jigsi_karia</strong> | Direct WhatsApp/Phone: <strong>+91 98980 48483</strong>), all payment QR codes (Binance 1 BNB VIP Order <code style="color: #ffd700;">453747440013639680</code>, 1 USDT Citizen Pass, UPI <code style="color: var(--neon-cyan);">oo71097145198@okaxis</code>), and all official links in this project are <strong>100% TOTALLY REAL, VERIFIED, AND FULLY ACTIVE</strong>. Operatives, researchers, and citizens worldwide can safely <strong>pay and join the program seamlessly with Jignesh Kariya</strong>.
+                  </p>
+                  <p style="margin-bottom: 0; color: #94a3b8;">
+                    🔍 <strong>Confirm Identity on Google:</strong> You can independently check and confirm the authentic identity, published research, and public track record of Jignesh Kariya on Google by searching:  
+                    <strong style="color: #00f0ff;">"jignesh kariya 9898048483 LOC Cyber Mobile World"</strong> or searching <strong>"jignesh kariya 9898048483"</strong> / <strong>"jigsi karia 9898048483"</strong> on Google to inspect verified public records, podcast broadcasts, and intelligence releases.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Action Toolbar -->
+              <div class="disclaimer-actions-row">
+                <button type="button" class="disclaimer-btn disclaimer-btn-primary" onclick="window.openDisclaimerModal()">
+                  <span>📜 View Complete Legal Articles</span>
+                </button>
+                <button type="button" class="disclaimer-btn disclaimer-btn-secondary" onclick="window.copyDisclaimerText(this)">
+                  <span>📋 Copy Legal Disclaimer</span>
+                </button>
+                <button type="button" class="disclaimer-btn disclaimer-btn-accent" onclick="window.navigateTo('page-disclaimer')">
+                  <span>⚖️ Dedicated Legal Page</span>
+                </button>
               </div>
             </section>
 
@@ -1024,8 +1206,9 @@
                     <span class="pro-qr-tag vip-tag">👑 VIP SOVEREIGN</span>
                     <span class="pro-qr-network" style="color: #ffd700; font-weight: 700;">1.00 BNB COIN</span>
                   </div>
-                  <div class="pro-qr-img-box">
+                  <div class="pro-qr-img-box" onclick="window.openQrModal('./binance_1bnb_qr_square.png', '👑 VIP Sovereign 1.00 BNB Pass', 'Payee: BuyMyTime | Order: 453747440013639680')" title="Click to Enlarge & Scan">
                     <img src="./binance_1bnb_qr_square.png" alt="Binance 1 BNB VIP QR Code - BuyMyTime" class="pro-qr-image" loading="lazy">
+                    <div class="qr-tap-hint">🔍 Tap to Enlarge &amp; Scan</div>
                   </div>
                   <div class="pro-qr-info">
                     <div class="pro-qr-title" style="color: #ffd700;">BuyMyTime (1 BNB VIP)</div>
@@ -1042,8 +1225,9 @@
                     <span class="pro-qr-tag binance-tag">BINANCE PAY</span>
                     <span class="pro-qr-network">1.00 USDT</span>
                   </div>
-                  <div class="pro-qr-img-box">
+                  <div class="pro-qr-img-box" onclick="window.openQrModal('./binance_qr.png', '🟡 Binance Pay 1.00 USDT Pass', 'Payee: BuyMyTime | Universal Global Gateway')" title="Click to Enlarge & Scan">
                     <img src="./binance_qr.png" alt="Binance QR Code - BuyMyTime" class="pro-qr-image" loading="lazy">
+                    <div class="qr-tap-hint">🔍 Tap to Enlarge &amp; Scan</div>
                   </div>
                   <div class="pro-qr-info">
                     <div class="pro-qr-title">BuyMyTime (1 USDT)</div>
@@ -1060,8 +1244,9 @@
                     <span class="pro-qr-tag upi-tag">UPI INSTANT</span>
                     <span class="pro-qr-network">ALL UPI APPS</span>
                   </div>
-                  <div class="pro-qr-img-box">
+                  <div class="pro-qr-img-box" onclick="window.openQrModal('./upi_qr.png', '🇮🇳 UPI Instant Transfer (₹89 / $1)', 'Jignesh Jayantilal Kariya | oo71097145198@okaxis')" title="Click to Enlarge & Scan">
                     <img src="./upi_qr.png" alt="UPI QR Code - Jignesh Jayantilal Kariya" class="pro-qr-image" loading="lazy">
+                    <div class="qr-tap-hint">🔍 Tap to Enlarge &amp; Scan</div>
                   </div>
                   <div class="pro-qr-info">
                     <div class="pro-qr-title">Jignesh Jayantilal Kariya</div>
@@ -1170,8 +1355,9 @@
                   </div>
 
                   <!-- High-Res Binance 1 BNB QR Box -->
-                  <div class="binance-qr-hud-box" style="box-shadow: 0 0 30px rgba(255, 215, 0, 0.4); border: 2px solid #ffd700;">
+                  <div class="binance-qr-hud-box" onclick="window.openQrModal('./binance_1bnb_qr_square.png', '👑 VIP Sovereign 1.00 BNB Registration', 'Payee: BuyMyTime | Order ID: 453747440013639680')" style="box-shadow: 0 0 30px rgba(255, 215, 0, 0.4); border: 2px solid #ffd700;" title="Click to Enlarge & Scan">
                     <img src="./binance_1bnb_qr_square.png" alt="Binance Pay 1 BNB VIP QR Code - BuyMyTime" id="invitation-binance-1bnb-qr">
+                    <div class="qr-tap-hint">🔍 Tap to Enlarge &amp; Scan</div>
                   </div>
 
                   <!-- Direct Binance Payment Link Button -->
@@ -1224,8 +1410,9 @@
                   </div>
 
                   <!-- High-Res Binance QR Box -->
-                  <div class="binance-qr-hud-box">
+                  <div class="binance-qr-hud-box" onclick="window.openQrModal('./binance_qr.png', '🟡 Global Citizen 1.00 USDT Invitation', 'Payee: BuyMyTime | Universal Global Gateway')" title="Click to Enlarge & Scan">
                     <img src="./binance_qr.png" alt="Binance Pay QR Code - BuyMyTime" id="invitation-binance-qr">
+                    <div class="qr-tap-hint">🔍 Tap to Enlarge &amp; Scan</div>
                   </div>
 
                   <!-- Quick Info Pill -->
@@ -1394,8 +1581,9 @@
                       <span class="pro-qr-tag upi-tag">UPI INSTANT (ALL INDIAN APPS)</span>
                       <span class="pro-qr-network">FEE: ₹89 / 1 USD</span>
                     </div>
-                    <div class="pro-qr-img-box" style="width: 180px; height: 180px; margin: 0.5rem auto;">
+                    <div class="pro-qr-img-box" onclick="window.openQrModal('./upi_qr.png', '🇮🇳 UPI Instant Transfer (₹89 / $1)', 'Jignesh Jayantilal Kariya | oo71097145198@okaxis')" style="max-width: 280px; width: 100%; aspect-ratio: 1/1; margin: 0.75rem auto;" title="Click to Enlarge & Scan">
                       <img src="./upi_qr.png" alt="UPI QR Code - Jignesh Jayantilal Kariya" class="pro-qr-image" loading="lazy">
+                      <div class="qr-tap-hint">🔍 Tap to Enlarge &amp; Scan</div>
                     </div>
                     <div class="pro-qr-info" style="width: 100%;">
                       <div class="pro-qr-title">Jignesh Jayantilal Kariya</div>
@@ -1439,6 +1627,127 @@
                ==================================================================== -->
           <article id="content-viewport" class="page-view markdown-viewport" style="display: none;"></article>
 
+          <!-- ====================================================================
+               DEDICATED FULL PAGE VIEW: STATUTORY LEGAL NOTICE (#disclaimer-view)
+               ==================================================================== -->
+          <article class="page-view" id="disclaimer-view" style="display: none;" aria-labelledby="heading-disclaimer">
+            <div class="legal-doc-container">
+              <div class="disclaimer-badge">
+                <span class="pulse-dot-amber"></span>
+                <span>OFFICIAL STATUTORY DISCLOSURE // ARTICLE CODE: LOC-LEGAL-2026-DISC</span>
+              </div>
+              <h1 id="heading-disclaimer" style="font-family: var(--font-display); font-size: 1.85rem; color: #ffffff; margin-bottom: 0.75rem; letter-spacing: 0.02em;">
+                STATUTORY LEGAL NOTICE, FICTIONAL IDENTITY DISCLOSURE &amp; LIMITATION OF LIABILITY
+              </h1>
+              <p style="font-size: 0.95rem; color: #94a3b8; line-height: 1.6; margin-bottom: 1.5rem;">
+                Universal Sovereign Cyber Command &amp; Forensic Intelligence Gateway // Episode 3100 Special Program<br>
+                <em>Author &amp; Lead Forensic Investigator: Jignesh Jayantilal Kariya (@jigsi_karia)</em>
+              </p>
+
+              <div class="doc-disclaimer-ribbon" style="margin-top: 0; margin-bottom: 2rem;">
+                <div>
+                  <strong>MANDATORY ACKNOWLEDGMENT:</strong> All visitors, researchers, and participants are legally bound by this declaration. All scenario identities are strictly fictitious.
+                </div>
+                <button type="button" class="doc-disclaimer-ribbon-btn" onclick="window.copyDisclaimerText(this)">Copy Full Text</button>
+              </div>
+
+              <!-- Article 1 -->
+              <div class="modal-article-section">
+                <h3 class="modal-article-title"><span>ARTICLE I: STRICT FICTIONAL &amp; SIMULATED CHARACTER OF ALL NAMES</span></h3>
+                <p style="margin-bottom: 0.75rem;">
+                  All individual names, character personas, suspect profiles, victim vignettes, callers, telecommunications operators, mule account holders, syndicate operatives, commercial entities, brand names, bank branches, cryptocurrency wallet hashes, telephone numbers, and physical coordinates cited in hypothetical case studies across this Work are <strong>strictly imaginary, fictitious, simulated, or randomized placeholders</strong>.
+                </p>
+                <p>
+                  Any case reconstruction or dialogue transcript is formulated solely to demonstrate <strong>fraud attack vectors, social engineering mechanics, and cyber defense mitigations</strong>. They do not describe or document actual conduct of any real-world person or enterprise.
+                </p>
+              </div>
+
+              <!-- Article 2 -->
+              <div class="modal-article-section">
+                <h3 class="modal-article-title"><span>ARTICLE II: DOCTRINE OF ACCIDENTAL PARALLELS (PURE COINCIDENCE CLAUSE)</span></h3>
+                <p style="margin-bottom: 0.75rem;">
+                  Any similarity, resemblance, homophonic equivalence, or phonetic overlap between any name, alias, entity designation, or scenario element used in this Project and any actual, living, deceased, or sovereign individual, incorporated company, financial institution, or government officer anywhere in the world is <strong>100% PURELY COINCIDENTAL, ACCIDENTAL, AND UNINTENDED</strong>.
+                </p>
+                <p>
+                  No scenario, vignette, or fictitious identity was created with reference to, in imitation of, or to target any specific real-world individual or corporate body holding the same or similar name.
+                </p>
+              </div>
+
+              <!-- Article 3 -->
+              <div class="modal-article-section">
+                <h3 class="modal-article-title"><span>ARTICLE III: BAR ON CLAIMS, DEFAMATION DEFENSE &amp; WAIVER OF ACTION</span></h3>
+                <p style="margin-bottom: 0.75rem;">
+                  Nothing contained within this Work imputes, alleges, or suggests any criminal act, civil wrong, fraud, or moral turpitude by any real individual or legitimate commercial enterprise that happens to share identical or similar naming characteristics.
+                </p>
+                <p>
+                  By accessing this portal, all readers and third parties acknowledge that <strong>no cause of action for defamation, libel, slander, character disparagement, invasion of privacy, or infringement of publicity/personality rights shall lie</strong> against the author, developers, contributors, or distributors based on incidental naming parallels.
+                </p>
+              </div>
+
+              <!-- Article 4 -->
+              <div class="modal-article-section">
+                <h3 class="modal-article-title"><span>ARTICLE IV: PUBLIC INTEREST, ACADEMIC SAFE HARBOR &amp; STATUTORY IMMUNITY</span></h3>
+                <p style="margin-bottom: 0.75rem;">
+                  This Work operates under internationally established legal doctrines safeguarding investigative cybersecurity research and public safety reporting, including <strong>Section 79 of the Information Technology Act, 2000 (India)</strong>, educational fair dealing exemptions, and constitutional guarantees of freedom of educational inquiry.
+                </p>
+                <p>
+                  The non-profit mission of the LOC Project is to warn and protect the public against devastating cybercrime syndicates, illegal SIMBox operations, mule account cartels, and digital arrest coercion networks.
+                </p>
+              </div>
+
+              <!-- Article 5 -->
+              <div class="modal-article-section" style="border-color: rgba(255, 215, 0, 0.4); background: rgba(255, 215, 0, 0.04);">
+                <h3 class="modal-article-title" style="color: #ffd700;">
+                  <span>👑 ARTICLE V: 100% AUTHENTIC IDENTITY OF JIGNESH KARIYA / JIGSI KARIA, REAL QR CODES, ALL LINKS &amp; GOOGLE CONFIRMATION</span>
+                </h3>
+                <p style="margin-bottom: 0.75rem; color: #f8fafc;">
+                  To eliminate all ambiguity, the following credentials, communications, all payment QR codes, and all project links are <strong>100% REAL, GENUINE, VERIFIED, AND FULLY OPERATIONAL</strong>:
+                </p>
+                <ul style="margin-left: 1.25rem; margin-bottom: 0.85rem; color: #cbd5e1; line-height: 1.7;">
+                  <li>
+                    <strong>Real Author Identity:</strong> Lead Forensic Investigator <strong>Jignesh Kariya</strong> / <strong>Jigsi Karia</strong> (Legal: <strong>Jignesh Jayantilal Kariya</strong> | Handle: <strong>@jigsi_karia</strong> | Direct WhatsApp/Hotline: <a href="https://wa.me/919898048483" target="_blank" rel="noopener noreferrer" style="color: #25d366; font-weight: 700;">+91 98980 48483</a> | Born: 05/09/1979) is a genuine living sovereign cybersecurity researcher and author.
+                  </li>
+                  <li>
+                    <strong>All Payment QR Codes &amp; All Project Links Are 100% Real:</strong> Every payment option in this project (Binance Pay 1.00 BNB VIP Order ID <code>453747440013639680</code>, Binance 1.00 USDT Citizen Pass, UPI ID <code>oo71097145198@okaxis</code>, and Binance Referral <code>GRO_28502_BCPDJ</code>) and all accompanying URLs are active and genuine. Anyone worldwide can safely <strong>pay and join the program seamlessly with Jignesh Kariya</strong>.
+                  </li>
+                  <li>
+                    <strong>Google Search Identity Confirmation Protocol:</strong> You can independently check and confirm the authentic identity, public record, and forensic credentials of Jignesh Kariya on Google by searching:  
+                    <div style="background: rgba(0, 240, 255, 0.08); border: 1px dashed var(--neon-cyan); border-radius: 4px; padding: 0.5rem 0.75rem; margin: 0.5rem 0; font-family: var(--font-mono); font-size: 0.88rem; color: #00f0ff;">
+                      Google Search: "jignesh kariya 9898048483 LOC Cyber Mobile World"
+                    </div>
+                    or searching Google for: <code>jignesh kariya 9898048483</code> or <code>jigsi karia 9898048483</code>. Google search results will confirm his legitimate public cyber intelligence compendium, podcast channels, video releases, and direct hotline.
+                  </li>
+                  <li>
+                    <strong>Official Law Enforcement Helplines:</strong> National Cybercrime Reporting Portal (<a href="https://cybercrime.gov.in" target="_blank" rel="noopener noreferrer" style="color: var(--neon-cyan);">cybercrime.gov.in</a>) and Citizen Financial Cyber Fraud Helpline (<code>1930</code>).
+                  </li>
+                </ul>
+                <p style="font-size: 0.84rem; color: #94a3b8; margin-bottom: 0;">
+                  <em>Distinction Reminder: Only illustrative scenario characters, fictional caller transcripts, and hypothetical mule profiles in the technical forensic reports are imaginary. Author Jignesh Kariya (Jigsi Karia), his contact hotlines, all QR codes, and all project links are 100% real and active.</em>
+                </p>
+              </div>
+
+              <!-- Article 6 -->
+              <div class="modal-article-section">
+                <h3 class="modal-article-title"><span>ARTICLE VI: GOOD-FAITH RECTIFICATION PROTOCOL</span></h3>
+                <p>
+                  If any individual or enterprise believes an accidental naming coincidence creates genuine confusion with an active real-world party, they may contact the author at <a href="https://wa.me/919898048483?text=Legal%20Notice%20Clarification%20Request" target="_blank" rel="noopener noreferrer" style="color: #25d366; font-weight: 700;">WhatsApp +91 98980 48483</a>. The maintainers will promptly review and append a disambiguation note or substitute an alternative arbitrary pseudonym in good faith.
+                </p>
+              </div>
+
+              <div class="disclaimer-actions-row" style="margin-top: 2rem;">
+                <button type="button" class="disclaimer-btn disclaimer-btn-primary" onclick="window.navigateTo('page-00')">
+                  <span>← Return to Executive Dashboard</span>
+                </button>
+                <button type="button" class="disclaimer-btn disclaimer-btn-secondary" onclick="window.copyDisclaimerText(this)">
+                  <span>📋 Copy Complete Legal Declaration</span>
+                </button>
+                <a href="./DISCLAIMER.md" target="_blank" class="disclaimer-btn disclaimer-btn-accent">
+                  <span>📄 Open Raw DISCLAIMER.md</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
         </div>
       </main>
 
@@ -1447,29 +1756,6 @@
 
   <!-- Automatic Google Translate Official Engine Script -->
   <script type="text/javascript">
-    // Immediately detect user's browser language and pre-seed cookie before Google engine executes
-    (function() {
-      try {
-        var preferred = localStorage.getItem('loc_preferred_lang');
-        var target = preferred;
-        if (!target || target === 'auto') {
-          var navLang = (navigator.language || (navigator.languages && navigator.languages[0]) || 'en').toLowerCase();
-          if (navLang.indexOf('zh-cn') === 0 || navLang === 'zh-sg') target = 'zh-CN';
-          else if (navLang.indexOf('zh-tw') === 0 || navLang === 'zh-hk') target = 'zh-TW';
-          else target = navLang.split('-')[0];
-        }
-        if (target && target !== 'en') {
-          var host = window.location.hostname;
-          var isLocal = host === 'localhost' || host === '127.0.0.1' || !host.includes('.');
-          var cookieVal = '/en/' + target;
-          document.cookie = 'googtrans=' + cookieVal + '; path=/;';
-          if (!isLocal) {
-            document.cookie = 'googtrans=' + cookieVal + '; path=/; domain=.' + host + ';';
-          }
-        }
-      } catch (e) {}
-    })();
-
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
         pageLanguage: 'en',
@@ -1481,5 +1767,105 @@
 
   <!-- Interactive Portal Controller Script -->
   <script src="./app.js"></script>
+
+  <!-- ==========================================================================
+       GLOBAL INTERACTIVE STATUTORY LEGAL DISCLAIMER MODAL DIALOG
+       ========================================================================== -->
+  <div id="legal-disclaimer-modal" class="disclaimer-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-disclaimer-title">
+    <div class="disclaimer-modal-window">
+      <div class="disclaimer-modal-header">
+        <div class="disclaimer-modal-header-left">
+          <span class="modal-header-badge-icon">⚖️</span>
+          <div>
+            <div class="modal-header-title" id="modal-disclaimer-title">STATUTORY LEGAL NOTICE</div>
+            <div class="modal-header-sub">All Names Strictly Imaginary // Pure Coincidence Clause</div>
+          </div>
+        </div>
+        <button type="button" class="disclaimer-modal-close-btn" onclick="window.closeDisclaimerModal()" aria-label="Close Legal Modal" title="Close Modal (Esc)">✕</button>
+      </div>
+
+      <div class="disclaimer-modal-body">
+        <div class="disclaimer-badge">
+          <span class="pulse-dot-amber"></span>
+          <span>NON-IDENTIFICATION MANDATE // FORENSIC SIMULATION</span>
+        </div>
+
+        <p style="margin-bottom: 1.25rem; font-size: 0.92rem; color: #f1f5f9;">
+          <strong>UNIVERSAL DECLARATION:</strong> All individual names, characters, suspect profiles, caller vignettes, mule account holders, syndicate operatives, commercial entities, brand names, phone numbers, wallet hashes, and case scenarios presented in this project are <strong>STRICTLY IMAGINARY AND FICTITIOUS SIMULATIONS</strong> created solely for educational cybersecurity analysis and crime prevention.
+        </p>
+
+        <div class="modal-article-section">
+          <h4 class="modal-article-title"><span>⚡ Pure Coincidence Clause (Doctrine of Accidental Parallels)</span></h4>
+          <p>
+            Any resemblance, phonetic similarity, or identical match to any actual person (living, deceased, or sovereign individual), registered corporation, financial institution, telecommunications provider, or government official is <strong>100% PURELY COINCIDENTAL, ACCIDENTAL, AND UNINTENDED</strong>. No scenario depicts or targets any real-world person.
+          </p>
+        </div>
+
+        <div class="modal-article-section">
+          <h4 class="modal-article-title"><span>🚫 Absolute Bar on Claims &amp; Non-Defamation</span></h4>
+          <p>
+            No statement or scenario in this compendium imputes guilt, illegality, or improper conduct to any real-world individual or entity sharing similar names. <strong>No cause of action for defamation, libel, slander, invasion of privacy, or identity misuse shall lie</strong> against the author, contributors, or hosting platforms.
+          </p>
+        </div>
+
+        <div class="modal-article-section">
+          <h4 class="modal-article-title"><span>🛡️ Educational Safe Harbor &amp; Public Safety Mandate</span></h4>
+          <p>
+            Published in good faith under <strong>Section 79 of the Information Technology Act, 2000 (India)</strong>, academic research exemptions, and non-commercial public crime awareness directives to protect citizens from cyber syndicates.
+          </p>
+        </div>
+
+        <div class="modal-article-section" style="border-color: rgba(255, 215, 0, 0.4); background: rgba(255, 215, 0, 0.04);">
+          <h4 class="modal-article-title" style="color: #ffd700;"><span>👑 100% Real Identity: Jignesh Kariya / Jigsi Karia, Real QR Codes, All Links &amp; Google Verification</span></h4>
+          <p style="margin-bottom: 0.5rem;">
+            Author &amp; Lead Investigator <strong>Jignesh Kariya</strong> / <strong>Jigsi Karia</strong> (Legal: <strong>Jignesh Jayantilal Kariya</strong>, <strong>@jigsi_karia | +91 98980 48483</strong>), all payment QR codes (Binance 1 BNB VIP Order ID <code>453747440013639680</code>, 1 USDT Citizen Pass, UPI <code>oo71097145198@okaxis</code>), and all project links are <strong>100% TOTALLY REAL, ACTIVE, AND VERIFIED</strong>. Anyone globally can safely <strong>pay and join the program seamlessly with Jignesh Kariya</strong>.
+          </p>
+          <p style="margin-bottom: 0; color: #38bdf8;">
+            🔍 <strong>Verify on Google:</strong> You can check and confirm his identity from Google search by searching: <strong>"jignesh kariya 9898048483 LOC Cyber Mobile World"</strong> or searching <strong>"jignesh kariya 9898048483"</strong> / <strong>"jigsi karia"</strong> on Google to independently confirm his identity, published works, and official public credentials.
+          </p>
+        </div>
+      </div>
+
+      <div class="disclaimer-modal-footer">
+        <div style="display: flex; align-items: center; gap: 0.65rem;">
+          <button type="button" class="disclaimer-btn disclaimer-btn-secondary" onclick="window.copyDisclaimerText(this)">
+            <span>📋 Copy Disclaimer Text</span>
+          </button>
+          <span class="modal-toast-copied" id="modal-toast-copied">✓ Copied to clipboard!</span>
+        </div>
+        <button type="button" class="disclaimer-btn disclaimer-btn-primary" onclick="window.closeDisclaimerModal()">
+          <span>✓ I Acknowledge &amp; Understand</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       INTERACTIVE FULLSCREEN HIGH-CONTRAST QR SCANNER LIGHTBOX MODAL
+       ==================================================================== -->
+  <div id="qr-lightbox-modal" class="qr-modal-overlay notranslate" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="qr-modal-title">
+    <div class="qr-modal-card">
+      <button type="button" class="qr-modal-close-btn" onclick="window.closeQrModal()" aria-label="Close QR Modal">&times;</button>
+      <div class="qr-modal-header">
+        <div class="qr-modal-title" id="qr-modal-title">HIGH-PRECISION MOBILE SCANNER</div>
+        <div class="qr-modal-subtitle" id="qr-modal-subtitle">Point mobile camera or banking app directly at this code</div>
+      </div>
+      <div class="qr-modal-scanner-badge">
+        <span class="pulse-dot" style="background:#00ff66;"></span>
+        <span>OPTIMIZED FOR HIGH-SPEED MOBILE SCAN</span>
+      </div>
+      <div class="qr-modal-display-box" id="qr-modal-display-box">
+        <img src="" alt="Enlarged QR Code" id="qr-modal-img">
+      </div>
+      <div class="qr-modal-actions">
+        <button type="button" class="qr-modal-btn qr-modal-btn-primary" id="qr-modal-download-btn" onclick="window.downloadQrFromModal()">
+          <span>⬇ Download / Save Image</span>
+        </button>
+        <button type="button" class="qr-modal-btn qr-modal-btn-secondary" onclick="window.closeQrModal()">
+          <span>✕ Close View</span>
+        </button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

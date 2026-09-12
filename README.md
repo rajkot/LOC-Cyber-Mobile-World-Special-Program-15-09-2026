@@ -7,6 +7,20 @@
 
 ---
 
+> [!IMPORTANT]
+> ### ⚖️ STATUTORY NOTICE & FICTIONAL IDENTITY DISCLAIMER: ALL SCENARIO NAMES ARE IMAGINARY
+> **CRITICAL LEGAL NOTICE:** All illustrative names of individuals, scenario suspects, caller vignettes, mule account holders, syndicate operatives, commercial entities, brand names, and incident reconstructions in the research reports (Parts I–X) are **STRICTLY IMAGINARY, FICTITIOUS, OR HYPOTHETICAL SIMULATIONS** for forensic educational cybersecurity analysis.
+> 
+> **DOCTRINE OF ACCIDENTAL PARALLELS (PURE COINCIDENCE CLAUSE):** Any resemblance or phonetic match to any real-world person (living or deceased) or commercial business is **100% PURELY COINCIDENTAL, ACCIDENTAL, AND UNINTENDED**. Zero wrongdoing is imputed to any actual person sharing similar names.
+> 
+> **👑 100% REAL & VERIFIED AUTHOR IDENTITY (JIGNESH KARIYA / JIGSI KARIA), REAL QR CODES & ALL LINKS:**  
+> - Author & Lead Forensic Investigator **Jignesh Kariya** / **Jigsi Karia** (Legal Name: **Jignesh Jayantilal Kariya**, `@jigsi_karia`), WhatsApp/Phone **+91 98980 48483**, all payment QR codes (Binance Pay 1 BNB VIP Order `453747440013639680`, 1 USDT Pass, UPI `oo71097145198@okaxis`), and all official project links are **100% TOTALLY REAL, GENUINE, AND FULLY OPERATIONAL**.  
+> - Citizens and operatives can safely **pay and join the program seamlessly with Jignesh Kariya**.  
+> - **Verify Identity on Google:** You can check and confirm the identity of Jignesh Kariya independently from Google search by searching: **`jignesh kariya 9898048483 LOC Cyber Mobile World`** or searching **`jignesh kariya 9898048483`** / **`jigsi karia 9898048483`** on Google to inspect verified public records, podcast directories, video releases, and official credentials.  
+> 📄 **Complete Formal Legal Declaration:** **[DISCLAIMER.md](./DISCLAIMER.md)** | **[Live Web Portal Notice](https://rajkot.github.io/LOC-Cyber-Mobile-World-Special-Program-15-09-2026/#page-disclaimer)**
+
+---
+
 ## 📑 Master Directory: Official Access URLs, QR Codes & Financial Rails
 
 Welcome to the central intelligence compendium and operational access directory for the **LOC Cyber Mobile World Special Program** (Episode 3100 Forensic Compendium). This repository serves as the definitive reference manual for global operatives, law enforcement liaisons, cybersecurity professionals, digital asset recovery teams, and citizens seeking verified forensic protection.
